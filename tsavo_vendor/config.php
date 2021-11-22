@@ -1,0 +1,40 @@
+<?php
+	$dbServer = 'localhost';
+	$dbUsername = 'root';
+	$dbPassword = '';
+	$dbDatabase = 'tsavoo';
+	$appURI = 'tsavoo/tsavo_vendor';
+	$host = 'localhost';
+
+	$adminConfig = [
+		'adminUsername' => "warorua_alex",
+		'adminPassword' => "\$2y\$10\$F/bAB80DDvq8Z8d2jewzh.8wNK5qf6RpEk3P7tuxIcNhTg8Qcm87e",
+		'notifyAdminNewMembers' => "2",
+		'defaultSignUp' => "1",
+		'anonymousGroup' => "anonymous",
+		'anonymousMember' => "guest",
+		'groupsPerPage' => "100",
+		'membersPerPage' => "100",
+		'recordsPerPage' => "100",
+		'custom1' => "First name",
+		'custom2' => "Last name",
+		'custom3' => "Contact",
+		'custom4' => "Home county",
+		'MySQLDateFormat' => "%m/%d/%Y",
+		'PHPDateFormat' => "n/j/Y",
+		'PHPDateTimeFormat' => "m/d/Y, h:i a",
+		'senderName' => "Tsavo Vendor's Hub",
+		'senderEmail' => "sales@tsavo.store",
+		'approvalSubject' => "Your membership is now approved",
+		'approvalMessage' => "Dear member,\r\n\r\nYour membership is now approved by the admin. You can log in to your account here:\r\nhttp://tsavo.store/tsavo_vendor\r\n\r\nRegards,\r\nAdmin",
+		'hide_twitter_feed' => "",
+		'maintenance_mode_message' => "<b>Our website is currently down for maintenance</b><br>\r\nWe expect to be back in a couple hours. Thanks for your patience.",
+		'mail_function' => "smtp",
+		'smtp_server' => "mail.tsavo.store",
+		'smtp_encryption' => "tls",
+		'smtp_port' => "587",
+		'smtp_user' => "sales@tsavo.store",
+		'smtp_pass' => "Alex2405.",
+		'googleAPIKey' => "",
+		'baseUploadPath' => "images",
+	];

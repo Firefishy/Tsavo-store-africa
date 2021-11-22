@@ -1,0 +1,74 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Order ID -->
+		<div class="form-group agent_monitor-pay_number" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Order ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="pay_number<%%RND1%%>"><%%COMBOTEXT(pay_number)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: User id -->
+		<div class="form-group agent_monitor-user_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">User id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="user_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Sale date -->
+		<div class="form-group agent_monitor-sale_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Sale date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="sale_date<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: User name -->
+		<div class="form-group agent_monitor-user_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">User name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="user_name<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Phone -->
+		<div class="form-group agent_monitor-phone" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Phone</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="phone<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Email -->
+		<div class="form-group agent_monitor-email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Email</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="email<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Creator Name -->
+		<div class="form-group agent_monitor-editors_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Creator Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(editors_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Create time -->
+		<div class="form-group agent_monitor-create_time" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Create time</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(create_time)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>

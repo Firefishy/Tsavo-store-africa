@@ -1,0 +1,74 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: rating Id -->
+		<div class="form-group item_rating-ratingId" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">rating Id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ratingId)%%></div>
+			</div>
+		</div>
+		<!-- Field: Item Slug code -->
+		<div class="form-group item_rating-itemId" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Item Slug code</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(itemId)%%></div>
+			</div>
+		</div>
+		<!-- Field: Rater id -->
+		<div class="form-group item_rating-userId" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Rater id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="userId-readonly<%%RND1%%>"><%%COMBOTEXT(userId)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Rater name -->
+		<div class="form-group item_rating-rater_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Rater name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="rater_name<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Rated stars -->
+		<div class="form-group item_rating-ratingNumber" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Rated stars</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ratingNumber)%%></div>
+			</div>
+		</div>
+		<!-- Field: Items -->
+		<div class="form-group item_rating-title" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Items</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(title)%%></div>
+			</div>
+		</div>
+		<!-- Field: Comments -->
+		<div class="form-group item_rating-comments" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Comments</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(comments)%%></div>
+			</div>
+		</div>
+		<!-- Field: Rated On -->
+		<div class="form-group item_rating-created" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Rated On</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(created)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>

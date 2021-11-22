@@ -1,0 +1,10 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the coupon_init() hook (in hooks/coupon.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="coupon-coupon_code-<%%VALUE(coupon_id)%%>" class="coupon-coupon_code"><%%VALUE(coupon_code)%%></td>
+		<td id="coupon-discount-<%%VALUE(coupon_id)%%>" class="coupon-discount text-right"><%%VALUE(discount)%%></td>
+		<td id="coupon-status-<%%VALUE(coupon_id)%%>" class="coupon-status"><%%VALUE(status)%%></td>

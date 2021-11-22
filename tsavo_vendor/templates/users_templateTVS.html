@@ -1,0 +1,22 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the users_init() hook (in hooks/users.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="users-id-<%%VALUE(id)%%>" class="users-id"><%%VALUE(id)%%></td>
+		<td id="users-wallet-<%%VALUE(id)%%>" class="users-wallet"><%%VALUE(wallet)%%></td>
+		<td id="users-firstname-<%%VALUE(id)%%>" class="users-firstname"><%%VALUE(firstname)%%></td>
+		<td id="users-lastname-<%%VALUE(id)%%>" class="users-lastname"><%%VALUE(lastname)%%></td>
+		<td id="users-email-<%%VALUE(id)%%>" class="users-email"><%%VALUE(email)%%></td>
+		<td id="users-contact_info-<%%VALUE(id)%%>" class="users-contact_info"><%%VALUE(contact_info)%%></td>
+		<td id="users-address-<%%VALUE(id)%%>" class="users-address"><%%VALUE(address)%%></td>
+		<td id="users-photo-<%%VALUE(id)%%>" class="users-photo"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>" data-lightbox="users-photo"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=users&f=photo&v=tv" class="img-thumbnail"></a></td>
+		<td id="users-created_on-<%%VALUE(id)%%>" class="users-created_on"><%%VALUE(created_on)%%></td>
+		<td id="users-zone-<%%VALUE(id)%%>" class="users-zone"><%%VALUE(zone)%%></td>
+		<td id="users-discount-<%%VALUE(id)%%>" class="users-discount"><%%VALUE(discount)%%></td>
+		<td id="users-coupon_code-<%%VALUE(id)%%>" class="users-coupon_code"><%%VALUE(coupon_code)%%></td>
+		<td id="users-coupon_worth-<%%VALUE(id)%%>" class="users-coupon_worth"><%%VALUE(coupon_worth)%%></td>
+		<td id="users-cost-<%%VALUE(id)%%>" class="users-cost text-right"><%%VALUE(cost)%%></td>
+		<td id="users-coupon_id-<%%VALUE(id)%%>" class="users-coupon_id"><%%VALUE(coupon_id)%%></td>

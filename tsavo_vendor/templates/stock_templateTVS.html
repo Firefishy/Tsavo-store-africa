@@ -1,0 +1,12 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the stock_init() hook (in hooks/stock.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="stock-company_stock_quantity-<%%VALUE(id)%%>" class="stock-company_stock_quantity"><%%VALUE(company_stock_quantity)%%></td>
+		<td id="stock-product_name-<%%VALUE(id)%%>" class="stock-product_name"><%%VALUE(product_name)%%></td>
+		<td id="stock-product_id-<%%VALUE(id)%%>" class="stock-product_id"><%%VALUE(product_id)%%></td>
+		<td id="stock-supplier-<%%VALUE(id)%%>" class="stock-supplier"><%%VALUE(supplier)%%></td>
+		<td id="stock-stock_quantity-<%%VALUE(id)%%>" class="stock-stock_quantity"><%%VALUE(stock_quantity)%%></td>

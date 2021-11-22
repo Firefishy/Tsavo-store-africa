@@ -1,0 +1,355 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Your shop id -->
+		<div class="form-group products-supp_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Your shop id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(supp_id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Vendor Name(Auto generated) -->
+		<div class="form-group products-supplier" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Vendor Name(Auto generated)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(supplier)%%></div>
+			</div>
+		</div>
+		<!-- Field: Vendor's Email (Add your main email) -->
+		<div class="form-group products-supp_email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Vendor's Email (Add your main email)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(supp_email)%%></div>
+			</div>
+		</div>
+		<!-- Field: Vendor Contact line( Add your main phone number) -->
+		<div class="form-group products-supp_cont" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Vendor Contact line( Add your main phone number)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(supp_cont)%%></div>
+			</div>
+		</div>
+		<!-- Field: Product Category -->
+		<div class="form-group products-category" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Product Category</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="category<%%RND1%%>"><%%COMBOTEXT(category)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Category ID -->
+		<div class="form-group products-category_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Category ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="category_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Country the Stock is located -->
+		<div class="form-group products-ship_orig" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Country the Stock is located</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(ship_orig)%%></div>
+			</div>
+		</div>
+		<!-- Field: Stock Quantity -->
+		<div class="form-group products-prod_qty" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Stock Quantity</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(prod_qty)%%></div>
+			</div>
+		</div>
+		<!-- Field: UPC/ISBN/EAN -->
+		<div class="form-group products-barcode" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">UPC/ISBN/EAN</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(barcode)%%></div>
+			</div>
+		</div>
+		<!-- Field: Product Name -->
+		<div class="form-group products-name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Product Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Brand -->
+		<div class="form-group products-brand" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Brand</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(brand)%%></div>
+			</div>
+		</div>
+		<!-- Field: Product photo -->
+		<div class="form-group products-photo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Product photo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var photoSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>';
+				var photoSrc2<%%RND1%%>='thumbnail.php?t=products&f=photo&i=<%%VALUE(photo)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('photoImg<%%RND1%%>').src=($('photoImg<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && photoSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? photoSrc1<%%RND1%%> : photoSrc2<%%RND1%%>); return false;"><img id="photoImg<%%RND1%%>" src="thumbnail.php?t=products&f=photo&i=<%%VALUE(photo)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Description Size -->
+		<div class="form-group products-size" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Description Size</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(size)%%></div>
+			</div>
+		</div>
+		<!-- Field: Main material -->
+		<div class="form-group products-material" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Main material</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(material)%%></div>
+			</div>
+		</div>
+		<!-- Field: Length(CMs) -->
+		<div class="form-group products-length" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Length(CMs)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(length)%%></div>
+			</div>
+		</div>
+		<!-- Field: Width(CMs) -->
+		<div class="form-group products-width" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Width(CMs)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(width)%%></div>
+			</div>
+		</div>
+		<!-- Field: Height(CMs) -->
+		<div class="form-group products-height" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Height(CMs)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(height)%%></div>
+			</div>
+		</div>
+		<!-- Field: Weight(KGs) -->
+		<div class="form-group products-weight" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Weight(KGs)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(weight)%%></div>
+			</div>
+		</div>
+		<!-- Field: Views Today -->
+		<div class="form-group products-counter" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Views Today</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(counter)%%></div>
+			</div>
+		</div>
+		<!-- Field: Main Price -->
+		<div class="form-group products-price_1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Main Price</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(price_1)%%></div>
+			</div>
+		</div>
+		<!-- Field: Was -->
+		<div class="form-group products-was" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Was</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(was)%%></div>
+			</div>
+		</div>
+		<!-- Field: Company Charge -->
+		<div class="form-group products-price_2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Company Charge</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(price_2)%%></div>
+			</div>
+		</div>
+		<!-- Field: Shipping weight charge -->
+		<div class="form-group products-shipping_add" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Shipping weight charge</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(shipping_add)%%></div>
+			</div>
+		</div>
+		<!-- Field: Net Price -->
+		<div class="form-group products-price" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Net Price</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(price)%%></div>
+			</div>
+		</div>
+		<!-- Field: Product Description -->
+		<div class="form-group products-description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Product Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(description)%%></div>
+			</div>
+		</div>
+		<!-- Field: What is in the box -->
+		<div class="form-group products-more_desc" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">What is in the box</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(more_desc)%%></div>
+			</div>
+		</div>
+		<!-- Field: Seller SKU -->
+		<div class="form-group products-seller_sku" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Seller SKU</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(seller_sku)%%></div>
+			</div>
+		</div>
+		<!-- Field: ON THE SECTION BELOW IS FOR CLOTHING AND SHOES. YOU ARE TO LABEL THE SIZE OF THE CLOTHING/SHOE THAT YOU ARE ADDING. -->
+		<div class="form-group products-note" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ON THE SECTION BELOW IS FOR CLOTHING AND SHOES. YOU ARE TO LABEL THE SIZE OF THE CLOTHING/SHOE THAT YOU ARE ADDING.</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(note)%%></div>
+			</div>
+		</div>
+		<!-- Field: Male shoes -->
+		<div class="form-group products-male_shoes" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Male shoes</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="male_shoes<%%RND1%%>"><%%COMBOTEXT(male_shoes)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Male shoes id -->
+		<div class="form-group products-male_shoes_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Male shoes id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="male_shoes_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Male pants -->
+		<div class="form-group products-male_pants" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Male pants</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="male_pants<%%RND1%%>"><%%COMBOTEXT(male_pants)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Male pants id -->
+		<div class="form-group products-male_pants_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Male pants id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="male_pants_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Male shirts -->
+		<div class="form-group products-male_shirts" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Male shirts</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="male_shirts<%%RND1%%>"><%%COMBOTEXT(male_shirts)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Male shirts id -->
+		<div class="form-group products-male_shirts_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Male shirts id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="male_shirts_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Female shoes -->
+		<div class="form-group products-female_shoes" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female shoes</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_shoes<%%RND1%%>"><%%COMBOTEXT(female_shoes)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Female shoes id -->
+		<div class="form-group products-female_shoes_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female shoes id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_shoes_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Female dresses -->
+		<div class="form-group products-female_dresses" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female dresses</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_dresses<%%RND1%%>"><%%COMBOTEXT(female_dresses)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Female dresses id -->
+		<div class="form-group products-female_dresses_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female dresses id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_dresses_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Female skirts -->
+		<div class="form-group products-female_skirts" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female skirts</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_skirts<%%RND1%%>"><%%COMBOTEXT(female_skirts)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Female skirts id -->
+		<div class="form-group products-female_skirts_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female skirts id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_skirts_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Female pants -->
+		<div class="form-group products-female_pants" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female pants</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_pants<%%RND1%%>"><%%COMBOTEXT(female_pants)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Female pants id -->
+		<div class="form-group products-female_pants_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Female pants id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="female_pants_id<%%RND1%%>"></span></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<!-- child records -->
+<div class="panel-body">
+	<div id="products-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=products-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'products',
+				SelectedID: '<%%VALUE(id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'products-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

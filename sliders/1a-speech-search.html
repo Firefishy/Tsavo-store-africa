@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Speech Recognition Demo
+    </title>
+    <script src="1b-speech-search.js"></script>
+  </head>
+  <body>
+    <form id="search-form" onsubmit="return false;">
+      <!-- (A) SEARCH FIELD AS USUAL -->
+      <input type="text" id="search-input"/>
+      <input type="submit" id="search-go" value="Search"/>
+
+      <!-- (B) SPEECH CONTROLS -->
+      <div id="search-speech">
+        <p>Click on "Speak", speak into the mic, and wait for a second.</p>
+        <input type="button" id="speech-on" value="Speak"/>
+        <input type="button" id="speech-off" value="Cancel"/>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Simple Voice Command Demo
+    </title>
+    <!-- (A) JUST SOME SIMPLE STYLES -->
+    <style>
+    #color-wrap {
+      background: #fafafa;
+      border: 2px solid #000;
+      height: 300px;
+      transition: all 1s;
+    }
+    </style>
+    <script src="2b-voice-command.js"></script>
+  </head>
+  <body>
+    <!-- (B) COLOR CONTAINER -->
+    <div id="color-wrap"></div>
+    
+    <!-- (C) VOICE COMMAND -->
+    <div id="voice-cmd">
+      <p>Press "speak" and say a color.</p>
+      <p>Try "red", "green", "blue", "orange", "black", or "white".</p>
+      <input type="button" id="voice-on" value="Speak"/>
+      <input type="button" id="voice-off" value="Cancel"/>
+    </div>
+  </body>
+</html>

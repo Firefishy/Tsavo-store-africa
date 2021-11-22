@@ -1,0 +1,295 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+<style>
+
+.invoice {
+  width: 970px !important;
+  margin: 50px auto;
+}
+.invoice .invoice-header {
+  padding: 25px 25px 15px;
+}
+.invoice .invoice-header h1 {
+  margin: 0;
+}
+.invoice .invoice-header .media .media-body {
+  font-size: 0.9em;
+  margin: 0;
+}
+.invoice .invoice-body {
+  border-radius: 10px;
+  padding: 25px;
+  background: #FFF;
+}
+.invoice .invoice-footer {
+  padding: 15px;
+  font-size: 0.9em;
+  text-align: center;
+  color: #999;
+}
+
+.logo {
+  max-height: 70px;
+  border-radius: 10px;
+}
+
+.dl-horizontal {
+  margin: 0;
+}
+.dl-horizontal dt {
+  float: left;
+  width: 80px;
+  overflow: hidden;
+  clear: left;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dl-horizontal dd {
+  margin-left: 90px;
+}
+
+.rowamount {
+  padding-top: 15px !important;
+}
+
+.rowtotal {
+  font-size: 1.3em;
+}
+
+.colfix {
+  width: 12%;
+}
+
+.mono {
+  font-family: monospace;
+}
+</style>
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+
+	<fieldset class="form-horizontal">
+		<!-- partial:index.partial.html -->
+<div class="container invoice">
+  <div class="invoice-header">
+    <div class="row">
+      <div class="col-xs-8">
+	  <div class="media-right">
+            <img class="media-object logo" src="https://www.linkpicture.com/q/_8.png" width="200px"/>
+          </div>
+        <h1>Tsavo <small>order invoice</small></h1>
+        <h4 class="text-muted"><span id="payy_id<%%RND1%%>"></span> | Date: <%%COMBOTEXT(sales_date)%%></h4>
+      </div>
+      <div class="col-xs-4">
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object" src="https://www.linkpicture.com/q/_8.png" width="100px"/>
+          </div>
+          <ul class="media-body list-unstyled">
+            <li><strong>Tsavo.Africa</strong></li>
+            <li style="font-family:lucida calligraphy">www.tsavo.store</li>
+            <li>+2547-1691-2002</li>
+            <li>sales@tsavo.store</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="invoice-body">
+    <div class="row">
+      <div class="col-xs-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Order Details</h3>
+          </div>
+          <div class="panel-body">
+            <dl class="dl-horizontal">
+              <dt>Seller</dt>
+              <dd><strong><span id="supp_name<%%RND1%%>"></span></strong></dd>
+              <dt>Sale Date</dt>
+              <dd><%%COMBOTEXT(sales_date)%%></dd>
+              <dt>Buyer ID</dt>
+              <dd><%%VALUE(user_id)%%></dd>
+              <dt>Sale ID</dt>
+              <dd id="sales_id-readonly<%%RND1%%>"><%%COMBOTEXT(sales_id)%%></dd>
+              <dt>Conf Date</dt>
+              <dd class="mono"><%%VALUE(last_edit)%%></dd>
+              
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-7">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Customer Details</h3>
+          </div>
+          <div class="panel-body">
+            <dl class="dl-horizontal">
+              <dt>First Name</dt>
+              <dd><%%VALUE(recipient_fname)%%></dd>
+              <dt>Last Name(s)</dt>
+              <dd><%%VALUE(recipient_lname)%%></dd>
+              <dt>Address</dt>
+              <dd><%%VALUE(recipient_address)%%></dd>
+              <dt>Phone</dt>
+              <dd><%%VALUE(recipient_contact)%%></</dd>
+              <dt>Email</dt>
+              <dd><%%VALUE(recipient_email)%%></dd>
+              <dt>Tracking ID</dt>
+              <dd class="mono"><%%VALUE(reference_number)%%></dd>
+              <dt>&nbsp;</dt>
+              <dd>&nbsp;</dd>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Product(s)</h3>
+      </div>
+      <table class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th>Item/Product </th>
+            <th class="text-center colfix">Length</th>
+            <th class="text-center colfix">Width</th>
+            <th class="text-center colfix">Height</th>
+            <th class="text-center colfix">Weight</th>
+            <th class="text-center colfix">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%%VALUE(product_name)%%>
+              <br>
+              <small class="text-muted"><span id="size<%%RND1%%>"></span></small>
+            </td>
+            <td class="text-right">
+              <span class="mono"><%%VALUE(length)%%></span>
+              <br>
+              <small class="text-muted">Centimeters</small>
+            </td>
+            <td class="text-right">
+              <span class="mono"><%%VALUE(width)%%></span>
+              <br>
+              <small class="text-muted">Centimeters</small>
+            </td>
+            <td class="text-right">
+              <span class="mono"><%%VALUE(height)%%></span>
+              <br>
+              <small class="text-muted">Centimeters</small>
+            </td>
+            <td class="text-right">
+              <span class="mono"><%%VALUE(weight)%%></span>
+              <br>
+              <small class="text-muted">Kilograms</small>
+            </td>
+            <td class="text-right">
+              <strong class="mono"><%%VALUE(quantity)%%></strong>
+              <br>
+              <small class="text-muted mono">Quantity</small>
+            </td>
+          </tr>
+
+          
+        </tbody>
+      </table>
+    </div>
+    <div class="panel panel-default">
+      <table class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <td class="text-center col-xs-1">Pick-Up Station</td>
+            <td class="text-center col-xs-1">Net Price</td>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-center rowtotal mono"><%%VALUE(pus)%%></th>
+            <th class="text-center rowtotal mono"><%%VALUE(price)%%></th>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-xs-7">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <i>Thank you</i>
+            <hr style="margin:3px 0 5px" />
+			<h2><b style="font-family:Segoe script; color:#b241d1">Merci de magasiner avec nous</b></h2>
+			</div>
+        </div>
+      </div>
+      <div class="col-xs-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Return product/item</h3>
+          </div>
+          <div class="panel-body">
+            <p>Incase of return kindly urgently call:</p>
+            <ul class="list-unstyled">
+              <li>Helpline - <span class="mono">+254-1691-2002</span></li>
+               <li>Email - <span class="mono">returns@tsavo.store</span></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="invoice-footer">
+    Thank you for choosing our services.
+    <br/> We hope to see you again soon
+    <br/>
+    <strong>~TSAVO~</strong>
+  </div>
+</div>
+<!-- partial -->
+<!--------=======================================================================================================================================================--------------------------------->
+
+<!---------------------============================================================================================================================================================----------------->
+	</fieldset>
+</div>
+<!-- child records -->
+<div class="panel-body">
+	<div id="details-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=details-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'details',
+				SelectedID: '<%%VALUE(id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'details-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

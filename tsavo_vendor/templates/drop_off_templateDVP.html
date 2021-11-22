@@ -1,0 +1,138 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Point name -->
+		<div class="form-group drop_off-point_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Point name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(point_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: GPRS Location -->
+		<div class="form-group drop_off-location" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">GPRS Location</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><img src="<%%GOOGLEMAPTHUMB(location)%%>" style="max-width: 480px;  max-height: 360px; "></div>
+			</div>
+		</div>
+		<!-- Field: Licence -->
+		<div class="form-group drop_off-licence" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Licence</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="licence-link" href="link.php?t=drop_off&f=licence&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-file" title="<%%VALUE(licence)%%>"></i></a><script>jQuery(function() { var e_licence = '<%%VALUE(licence)%%>'; if(e_licence == '' || e_licence == '&nbsp;' || e_licence == 'blank.gif') jQuery('#licence-link').hide(); });</script></div>
+			</div>
+		</div>
+		<!-- Field: Packages Size accepted -->
+		<div class="form-group drop_off-packages_accepted" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Packages Size accepted</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(packages_accepted)%%></div>
+			</div>
+		</div>
+		<!-- Field: Operating licence -->
+		<div class="form-group drop_off-operating_licence" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Operating licence</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="operating_licence-link" href="link.php?t=drop_off&f=operating_licence&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-file" title="<%%VALUE(operating_licence)%%>"></i></a><script>jQuery(function() { var e_operating_licence = '<%%VALUE(operating_licence)%%>'; if(e_operating_licence == '' || e_operating_licence == '&nbsp;' || e_operating_licence == 'blank.gif') jQuery('#operating_licence-link').hide(); });</script></div>
+			</div>
+		</div>
+		<!-- Field: Agent email -->
+		<div class="form-group drop_off-station_email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Agent email</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(station_email)%%></div>
+			</div>
+		</div>
+		<!-- Field: Station photo -->
+		<div class="form-group drop_off-station_photo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Station photo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var station_photoSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(station_photo)%%>';
+				var station_photoSrc2<%%RND1%%>='thumbnail.php?t=drop_off&f=station_photo&i=<%%VALUE(station_photo)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('station_photoImg<%%RND1%%>').src=($('station_photoImg<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && station_photoSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? station_photoSrc1<%%RND1%%> : station_photoSrc2<%%RND1%%>); return false;"><img id="station_photoImg<%%RND1%%>" src="thumbnail.php?t=drop_off&f=station_photo&i=<%%VALUE(station_photo)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Station contact -->
+		<div class="form-group drop_off-station_contact" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Station contact</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(station_contact)%%></div>
+			</div>
+		</div>
+		<!-- Field: Agent incharge (Full name) -->
+		<div class="form-group drop_off-agent_incharge" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Agent incharge (Full name)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(agent_incharge)%%></div>
+			</div>
+		</div>
+		<!-- Field: Agent id Number -->
+		<div class="form-group drop_off-agent_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Agent id Number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(agent_id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Station reg date -->
+		<div class="form-group drop_off-station_reg_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Station reg date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(station_reg_date)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<!-- child records -->
+<div class="panel-body">
+	<div id="drop_off-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=drop_off-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'drop_off',
+				SelectedID: '<%%VALUE(id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'drop_off-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

@@ -1,0 +1,12 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the details_init() hook (in hooks/details.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="details-payment-<%%VALUE(id)%%>" class="details-payment"><%%VALUE(payment)%%></td>
+		<td id="details-supp_conf-<%%VALUE(id)%%>" class="details-supp_conf"><%%VALUE(supp_conf)%%></td>
+		<td id="details-reference_number-<%%VALUE(id)%%>" class="details-reference_number"><%%VALUE(reference_number)%%></td>
+		<td id="details-product_name-<%%VALUE(id)%%>" class="details-product_name"><%%VALUE(product_name)%%></td>
+		<td id="details-supp_name-<%%VALUE(id)%%>" class="details-supp_name"><%%VALUE(supp_name)%%></td>

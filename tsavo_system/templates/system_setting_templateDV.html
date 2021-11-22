@@ -1,0 +1,431 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/system_setting-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="system_setting_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="system_setting_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="system_setting_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Flash_sale -->
+				<div class="form-group system_setting-flash_sale">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="flash_sale">Flash_sale</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="flash_sale" id="flash_sale" value="<%%VALUE(flash_sale)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Date -->
+				<div class="form-group system_setting-date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="date-mm">Date</label>
+					<div class="col-lg-9">
+						<%%COMBO(date)%%>
+					</div>
+				</div>
+
+				<!-- Field: Just_sold -->
+				<div class="form-group system_setting-just_sold">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="just_sold">Just_sold</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="just_sold" id="just_sold" value="<%%VALUE(just_sold)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Js_date -->
+				<div class="form-group system_setting-js_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="js_date-mm">Js_date</label>
+					<div class="col-lg-9">
+						<%%COMBO(js_date)%%>
+					</div>
+				</div>
+
+				<!-- Field: Recommended -->
+				<div class="form-group system_setting-recommended">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="recommended">Recommended</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="recommended" id="recommended" value="<%%VALUE(recommended)%%>">
+					</div>
+				</div>
+
+				<!-- Field: R_date -->
+				<div class="form-group system_setting-r_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="r_date-mm">R_date</label>
+					<div class="col-lg-9">
+						<%%COMBO(r_date)%%>
+					</div>
+				</div>
+
+				<!-- Field: Latest_product -->
+				<div class="form-group system_setting-latest_product">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="latest_product">Latest_product</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="latest_product" id="latest_product" value="<%%VALUE(latest_product)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Lp_date -->
+				<div class="form-group system_setting-lp_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="lp_date-mm">Lp_date</label>
+					<div class="col-lg-9">
+						<%%COMBO(lp_date)%%>
+					</div>
+				</div>
+
+				<!-- Field: Prods_1 -->
+				<div class="form-group system_setting-prods_1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="prods_1">Prods_1</label>
+					<div class="col-lg-9">
+						<input maxlength="200" type="text" class="form-control" name="prods_1" id="prods_1" value="<%%VALUE(prods_1)%%>">
+					</div>
+				</div>
+
+				<!-- Field: P1_date -->
+				<div class="form-group system_setting-p1_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="p1_date-mm">P1_date</label>
+					<div class="col-lg-9">
+						<%%COMBO(p1_date)%%>
+					</div>
+				</div>
+
+				<!-- Field: Id -->
+				<div class="form-group system_setting-id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="id">Id</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="id" id="id" value="<%%VALUE(id)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Prods_2 -->
+				<div class="form-group system_setting-prods_2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="prods_2">Prods_2</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="prods_2" id="prods_2" value="<%%VALUE(prods_2)%%>">
+					</div>
+				</div>
+
+				<!-- Field: P2_date -->
+				<div class="form-group system_setting-p2_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="p2_date-mm">P2_date</label>
+					<div class="col-lg-9">
+						<%%COMBO(p2_date)%%>
+					</div>
+				</div>
+
+				<!-- Field: Prods_3 -->
+				<div class="form-group system_setting-prods_3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="prods_3">Prods_3</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="prods_3" id="prods_3" value="<%%VALUE(prods_3)%%>">
+					</div>
+				</div>
+
+				<!-- Field: P3_date -->
+				<div class="form-group system_setting-p3_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="p3_date-mm">P3_date</label>
+					<div class="col-lg-9">
+						<%%COMBO(p3_date)%%>
+					</div>
+				</div>
+
+				<!-- Field: Location -->
+				<div class="form-group system_setting-location">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="location">Location</label>
+					<div class="col-lg-9">
+						<input maxlength="100" type="text" class="form-control" name="location" id="location" value="<%%VALUE(location)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Phone -->
+				<div class="form-group system_setting-phone">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="phone">Phone</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="phone" id="phone" value="<%%VALUE(phone)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Email -->
+				<div class="form-group system_setting-email">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="email">Email</label>
+					<div class="col-lg-9">
+						<input maxlength="80" type="text" class="form-control" name="email" id="email" value="<%%VALUE(email)%%>">
+					</div>
+				</div>
+
+				<!-- Field: System_bg -->
+				<div class="form-group system_setting-system_bg">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="system_bg">System_bg</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="system_bg" id="system_bg" value="<%%VALUE(system_bg)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Hidder -->
+				<div class="form-group system_setting-hidder">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="hidder">Hidder</label>
+					<div class="col-lg-9">
+						<input maxlength="10" type="text" class="form-control" name="hidder" id="hidder" value="<%%VALUE(hidder)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Unhidder -->
+				<div class="form-group system_setting-unhidder">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="unhidder">Unhidder</label>
+					<div class="col-lg-9">
+						<input maxlength="10" type="text" class="form-control" name="unhidder" id="unhidder" value="<%%VALUE(unhidder)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script -->
+				<div class="form-group system_setting-new_script">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script">New_script</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script" id="new_script" value="<%%VALUE(new_script)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script2 -->
+				<div class="form-group system_setting-new_script2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script2">New_script2</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script2" id="new_script2" value="<%%VALUE(new_script2)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script3 -->
+				<div class="form-group system_setting-new_script3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script3">New_script3</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script3" id="new_script3" value="<%%VALUE(new_script3)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script4 -->
+				<div class="form-group system_setting-new_script4">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script4">New_script4</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script4" id="new_script4" value="<%%VALUE(new_script4)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script5 -->
+				<div class="form-group system_setting-new_script5">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script5">New_script5</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script5" id="new_script5" value="<%%VALUE(new_script5)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script6 -->
+				<div class="form-group system_setting-new_script6">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script6">New_script6</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script6" id="new_script6" value="<%%VALUE(new_script6)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script7 -->
+				<div class="form-group system_setting-new_script7">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script7">New_script7</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script7" id="new_script7" value="<%%VALUE(new_script7)%%>">
+					</div>
+				</div>
+
+				<!-- Field: New_script8 -->
+				<div class="form-group system_setting-new_script8">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="new_script8">New_script8</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="new_script8" id="new_script8" value="<%%VALUE(new_script8)%%>">
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="system_setting_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#system_setting_dv_container-loading').addClass('hidden');
+			$j('#system_setting_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('system_setting', 'flash_sale');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'system_setting',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=system_setting&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=system_setting&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

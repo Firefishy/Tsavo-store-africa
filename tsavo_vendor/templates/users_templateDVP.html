@@ -1,0 +1,166 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Id -->
+		<div class="form-group users-id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Wallet -->
+		<div class="form-group users-wallet" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Wallet</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(wallet)%%></div>
+			</div>
+		</div>
+		<!-- Field: Firstname -->
+		<div class="form-group users-firstname" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Firstname</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(firstname)%%></div>
+			</div>
+		</div>
+		<!-- Field: Lastname -->
+		<div class="form-group users-lastname" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Lastname</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(lastname)%%></div>
+			</div>
+		</div>
+		<!-- Field: Email -->
+		<div class="form-group users-email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Email</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(email)%%></div>
+			</div>
+		</div>
+		<!-- Field: Contact_info -->
+		<div class="form-group users-contact_info" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contact_info</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(contact_info)%%></div>
+			</div>
+		</div>
+		<!-- Field: Address -->
+		<div class="form-group users-address" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Address</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(address)%%></div>
+			</div>
+		</div>
+		<!-- Field: Photo -->
+		<div class="form-group users-photo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Photo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var photoSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>';
+				var photoSrc2<%%RND1%%>='thumbnail.php?t=users&f=photo&i=<%%VALUE(photo)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('photoImg<%%RND1%%>').src=($('photoImg<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && photoSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? photoSrc1<%%RND1%%> : photoSrc2<%%RND1%%>); return false;"><img id="photoImg<%%RND1%%>" src="thumbnail.php?t=users&f=photo&i=<%%VALUE(photo)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Created_on -->
+		<div class="form-group users-created_on" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Created_on</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(created_on)%%></div>
+			</div>
+		</div>
+		<!-- Field: Zone -->
+		<div class="form-group users-zone" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Zone</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(zone)%%></div>
+			</div>
+		</div>
+		<!-- Field: Redeem Code -->
+		<div class="form-group users-discount" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Redeem Code</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="discount<%%RND1%%>"><%%COMBOTEXT(discount)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Coupon Code -->
+		<div class="form-group users-coupon_code" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Coupon Code</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(coupon_code)%%></div>
+			</div>
+		</div>
+		<!-- Field: Coupon worth -->
+		<div class="form-group users-coupon_worth" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Coupon worth</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(coupon_worth)%%></div>
+			</div>
+		</div>
+		<!-- Field: Cost -->
+		<div class="form-group users-cost" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cost</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(cost)%%></div>
+			</div>
+		</div>
+		<!-- Field: Coupon id -->
+		<div class="form-group users-coupon_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Coupon id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="coupon_id<%%RND1%%>"><%%COMBOTEXT(coupon_id)%%></span></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<!-- child records -->
+<div class="panel-body">
+	<div id="users-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=users-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'users',
+				SelectedID: '<%%VALUE(id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'users-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

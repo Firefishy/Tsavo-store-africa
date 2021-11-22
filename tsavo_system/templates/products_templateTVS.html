@@ -1,0 +1,12 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the products_init() hook (in hooks/products.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="products-promote_class-<%%VALUE(id)%%>" class="products-promote_class"><%%VALUE(promote_class)%%></td>
+		<td id="products-promote_code-<%%VALUE(id)%%>" class="products-promote_code"><%%VALUE(promote_code)%%></td>
+		<td id="products-slug-<%%VALUE(id)%%>" class="products-slug"><%%VALUE(slug)%%></td>
+		<td id="products-name-<%%VALUE(id)%%>" class="products-name"><%%VALUE(name)%%></td>
+		<td id="products-seller_sku-<%%VALUE(id)%%>" class="products-seller_sku"><%%VALUE(seller_sku)%%></td>

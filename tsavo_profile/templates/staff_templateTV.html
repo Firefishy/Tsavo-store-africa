@@ -1,0 +1,12 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the staff_init() hook (in hooks/staff.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="staff-profile_photo-<%%VALUE(id)%%>" class="staff-profile_photo"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(profile_photo)%%>" data-lightbox="staff-profile_photo"><img src="thumbnail.php?i=<%%VALUE(profile_photo)%%>&t=staff&f=profile_photo&v=tv" class="img-thumbnail"></a></td>
+		<td id="staff-first_name-<%%VALUE(id)%%>" class="staff-first_name"><%%SELECT%%><%%VALUE(first_name)%%><%%ENDSELECT%%></td>
+		<td id="staff-last_name-<%%VALUE(id)%%>" class="staff-last_name"><%%SELECT%%><%%VALUE(last_name)%%><%%ENDSELECT%%></td>
+		<td id="staff-position-<%%VALUE(id)%%>" class="staff-position"><%%SELECT%%><%%VALUE(position)%%><%%ENDSELECT%%></td>
+		<td id="staff-details-<%%VALUE(id)%%>" class="staff-details"><%%SELECT%%><%%VALUE(details)%%><%%ENDSELECT%%></td>

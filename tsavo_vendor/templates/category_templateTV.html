@@ -1,0 +1,13 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the category_init() hook (in hooks/category.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="category-id-<%%VALUE(id)%%>" class="category-id text-right"><%%SELECT%%><%%VALUE(id)%%><%%ENDSELECT%%></td>
+		<td id="category-name-<%%VALUE(id)%%>" class="category-name"><%%SELECT%%><%%VALUE(name)%%><%%ENDSELECT%%></td>
+		<td id="category-cat_name-<%%VALUE(id)%%>" class="category-cat_name"><%%SELECT%%><%%VALUE(cat_name)%%><%%ENDSELECT%%></td>
+		<td id="category-sub_cat-<%%VALUE(id)%%>" class="category-sub_cat"><%%SELECT%%><%%VALUE(sub_cat)%%><%%ENDSELECT%%></td>
+		<td id="category-code-<%%VALUE(id)%%>" class="category-code"><%%SELECT%%><%%VALUE(code)%%><%%ENDSELECT%%></td>
+		<td id="category-cat_slug-<%%VALUE(id)%%>" class="category-cat_slug"><%%SELECT%%><%%VALUE(cat_slug)%%><%%ENDSELECT%%></td>

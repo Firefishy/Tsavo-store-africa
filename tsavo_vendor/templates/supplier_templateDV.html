@@ -1,0 +1,508 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/supplier-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="supplier_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="supplier_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="supplier_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Vendor ID -->
+				<div class="form-group supplier-supp_slug">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Vendor ID</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="supp_slug"><%%VALUE(supp_slug)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Shop/Company Name -->
+				<div class="form-group supplier-name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Shop/Company Name</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="name"><%%VALUE(name)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Shop id -->
+				<div class="form-group supplier-shop_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Shop id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="shop_id"><%%VALUE(shop_id)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Supplier's Registered user Name -->
+				<div class="form-group supplier-supp_name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="supp_name">Supplier's Registered user Name</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="supp_name" id="supp_name" value="<%%VALUE(supp_name)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Phone Number -->
+				<div class="form-group supplier-supp_contact">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="supp_contact">Phone Number</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="supp_contact" id="supp_contact" value="<%%VALUE(supp_contact)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Id number -->
+				<div class="form-group supplier-id_number">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="id_number">Id number</label>
+					<div class="col-lg-9">
+						<input maxlength="8" type="text" class="form-control" name="id_number" id="id_number" value="<%%VALUE(id_number)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Passport (For Non-Citizens) -->
+				<div class="form-group supplier-passport">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="passport">Passport (For Non-Citizens)</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="passport" id="passport" value="<%%VALUE(passport)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Gender -->
+				<div class="form-group supplier-gender">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="gender">Gender</label>
+					<div class="col-lg-9">
+						<%%COMBO(gender)%%>
+					</div>
+				</div>
+
+				<!-- Field: Scanned Id/Passport Card -->
+				<div class="form-group supplier-identity_no">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Scanned Id/Passport Card <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#identity_no-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="identity_no-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 100 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a id="identity_no-link" href="link.php?t=supplier&f=identity_no&i=<%%VALUE(id)%%>" target="_blank" class="rspacer-lg"><i class="glyphicon glyphicon-file" title="<%%VALUE(identity_no)%%>" style="font-size: 4em;"></i></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(identity_no)%%>
+								<%%REMOVEFILE(identity_no)%%>
+								<div class="text-bold text-danger file-type-error hidden">
+									<%%TRANSLATION(invalid file type)%%>
+								</div>
+								<div class="text-bold text-danger file-size-error hidden">
+									<%%TRANSLATION(file too large)%%>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>jQuery(function() { var e_identity_no = '<%%VALUE(identity_no)%%>'; if(e_identity_no == '' || e_identity_no == '&nbsp;' || e_identity_no == 'blank.gif') jQuery('#identity_no-link').hide(); });</script>
+					</div>
+				</div>
+
+				<!-- Field: Scanned Business Licence -->
+				<div class="form-group supplier-licence_no">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Scanned Business Licence <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#licence_no-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="licence_no-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 2000 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(licence_no)%%>" data-lightbox="supplier_dv"><img src="thumbnail.php?i=<%%VALUE(licence_no)%%>&t=supplier&f=licence_no&v=dv" class="img-thumbnail" id="licence_no-image"></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(licence_no)%%>
+								<%%REMOVEFILE(licence_no)%%>
+								<div class="text-bold text-danger file-type-error hidden"><%%TRANSLATION(invalid file type)%%></div>
+								<div class="text-bold text-danger file-size-error hidden"><%%TRANSLATION(file too large)%%></div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>/* disable links to empty images */ $j(function() { var e_licence_no = '<%%VALUE(licence_no)%%>'; if(e_licence_no == '' || e_licence_no == '&nbsp;' || e_licence_no == 'blank.gif') { $j('#licence_no-link').hide(); $j('#licence_no-image').parents('a').attr('href', '').on('click', function(e) { e.preventDefault(); }); } });</script>
+					</div>
+				</div>
+
+				<!-- Field: Email -->
+				<div class="form-group supplier-email">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="email-edit-link">Email</label>
+					<div class="col-lg-9">
+						<div>
+							<a id="email-link" href="mailto:<%%VALUE(email)%%>" target="_blank" class="rspacer-lg"><%%VALUE(email)%%></a>
+							<label for="email"><button type="button" id="email-edit-link" class="btn btn-default vspacer-sm" data-toggle="collapse" data-target="#email" title="<%%TRANSLATION(Edit)%%>"><i class="glyphicon glyphicon-pencil"></i></button></label>
+							<input maxlength="200" type="text" class="form-control collapse" name="email" id="email" value="<%%VALUE(email)%%>">
+						</div><script>jQuery(function() { var e_email = '<%%VALUE(email)%%>'; if(e_email == '' || e_email == '&nbsp;' || e_email == 'blank.gif') jQuery('#email-link').hide(); });</script>
+					</div>
+				</div>
+
+				<!-- Field: Address -->
+				<div class="form-group supplier-address">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="address">Address</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="address" id="address" value="<%%VALUE(address)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Photo -->
+				<div class="form-group supplier-photo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Photo <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="photo-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 4000 KB.<br>Allowed file types: jpg, jpeg, gif, png</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>" data-lightbox="supplier_dv"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=supplier&f=photo&v=dv" class="img-thumbnail" id="photo-image"></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(photo)%%>
+								<%%REMOVEFILE(photo)%%>
+								<div class="text-bold text-danger file-type-error hidden"><%%TRANSLATION(invalid file type)%%></div>
+								<div class="text-bold text-danger file-size-error hidden"><%%TRANSLATION(file too large)%%></div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>/* disable links to empty images */ $j(function() { var e_photo = '<%%VALUE(photo)%%>'; if(e_photo == '' || e_photo == '&nbsp;' || e_photo == 'blank.gif') { $j('#photo-link').hide(); $j('#photo-image').parents('a').attr('href', '').on('click', function(e) { e.preventDefault(); }); } });</script>
+					</div>
+				</div>
+
+				<!-- Field: Origin country -->
+				<div class="form-group supplier-origin_country">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="origin_country">Origin country</label>
+					<div class="col-lg-9">
+						<%%COMBO(origin_country)%%>
+					</div>
+				</div>
+
+				<!-- Field: Store overview -->
+				<div class="form-group supplier-store_overview">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Store overview <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#store_overview-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="store_overview-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 4000 KB.<br>Allowed file types: jpg, jpeg, gif, png</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(store_overview)%%>" data-lightbox="supplier_dv"><img src="thumbnail.php?i=<%%VALUE(store_overview)%%>&t=supplier&f=store_overview&v=dv" class="img-thumbnail" id="store_overview-image"></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(store_overview)%%>
+								<%%REMOVEFILE(store_overview)%%>
+								<div class="text-bold text-danger file-type-error hidden"><%%TRANSLATION(invalid file type)%%></div>
+								<div class="text-bold text-danger file-size-error hidden"><%%TRANSLATION(file too large)%%></div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>/* disable links to empty images */ $j(function() { var e_store_overview = '<%%VALUE(store_overview)%%>'; if(e_store_overview == '' || e_store_overview == '&nbsp;' || e_store_overview == 'blank.gif') { $j('#store_overview-link').hide(); $j('#store_overview-image').parents('a').attr('href', '').on('click', function(e) { e.preventDefault(); }); } });</script>
+					</div>
+				</div>
+
+				<!-- Field: Drop off point -->
+				<div class="form-group supplier-drop_off_point">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="drop_off_point" data-parent_link="view_parent_modal">Drop off point</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(drop_off_point)%%><%%PLINK(drop_off_point)%%><%%ADDNEW(drop_off)%%><span id="drop_off_pointLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Drop off contact -->
+				<div class="form-group supplier-drop_off_contact">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Drop off contact</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="drop_off_contact"></div>
+					</div>
+				</div>
+
+				<!-- Field: Created_on -->
+				<div class="form-group supplier-created_on">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Created_on</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="created_on"><%%VALUE(created_on)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: <---------------BANK DETAILS------------------> -->
+				<div class="form-group supplier-bank_head">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3"><---------------BANK DETAILS------------------></label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="bank_head"><%%VALUE(bank_head)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Service provider -->
+				<div class="form-group supplier-service_provider">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="service_provider">Service provider</label>
+					<div class="col-lg-9">
+						<%%COMBO(service_provider)%%>
+					</div>
+				</div>
+
+				<!-- Field: Service Provider Registered name -->
+				<div class="form-group supplier-sp_name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="sp_name">Service Provider Registered name</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="sp_name" id="sp_name" value="<%%VALUE(sp_name)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Service Provider Registered number -->
+				<div class="form-group supplier-sp_number">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="sp_number">Service Provider Registered number</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="sp_number" id="sp_number" value="<%%VALUE(sp_number)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Account name -->
+				<div class="form-group supplier-account_name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="account_name">Account name</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="account_name" id="account_name" value="<%%VALUE(account_name)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Account number -->
+				<div class="form-group supplier-account_number">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="account_number">Account number</label>
+					<div class="col-lg-9">
+						<input maxlength="25" type="text" class="form-control" name="account_number" id="account_number" value="<%%VALUE(account_number)%%>">
+					</div>
+				</div>
+
+				<!-- Field: IBAN number -->
+				<div class="form-group supplier-iban_number">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="iban_number">IBAN number</label>
+					<div class="col-lg-9">
+						<input maxlength="30" type="text" class="form-control" name="iban_number" id="iban_number" value="<%%VALUE(iban_number)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Bank name -->
+				<div class="form-group supplier-bank_name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="bank_name">Bank name</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="bank_name" id="bank_name" value="<%%VALUE(bank_name)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Bank branch -->
+				<div class="form-group supplier-bank_branch">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="bank_branch">Bank branch</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="bank_branch" id="bank_branch" value="<%%VALUE(bank_branch)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Bank code -->
+				<div class="form-group supplier-bank_code">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="bank_code">Bank code</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="bank_code" id="bank_code" value="<%%VALUE(bank_code)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Mode of transfer -->
+				<div class="form-group supplier-mode_of_transfer">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="mode_of_transfer">Mode of transfer</label>
+					<div class="col-lg-9">
+						<%%COMBO(mode_of_transfer)%%>
+					</div>
+				</div>
+
+				<!-- Field: I have read and accepted the Vendor terms and Conditions. -->
+				<div class="form-group supplier-terms_conditions">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="terms_conditions-description"><div class="alert alert-info bspacer-xs">Standard terms and conditions of business are often given a low priority by companies and may only be given detailed consideration when a dispute arises, by which time it may be too late. In the meantime, the sales department may, without the knowledge of the legal department, be issuing quotations or processing orders using terms which are out of date, unsuited to the company's current business needs or simply copied from terms used by the company's competitors. If sales staff are not following proper contracting procedures, they may sometimes not even be contracting on the company's own terms, because better-trained purchasing departments have succeeded in substituting their own.<br><br>Standard terms and conditions of business may be used in order to achieve any one or more of the following commercial objectives:<br><br>To set out a framework for how a company's transactions will be dealt with and brought to a conclusion without the additional time and expense involved in drawing up specific terms for each individual transaction.<br>To enable a company to impose terms favourable to itself on others without negotiation and, in particular, to limit its liability (in the case of sale terms) or to extend the liability of the seller (in the case of purchase terms).<br>To provide certainty in relation to transactions which form the main part of the trade of the company through the use of the same set of terms in all cases.<br>To standardise a company's contracting procedures, so as to allow contracts to be handled and concluded by more junior staff.<br>Although the benefits of using standard terms and conditions are substantial, their use is subject to certain legal and practical limitations:<br><br>There are legal restrictions on the extent to which a company is allowed to exclude or limit its liability where its standard terms will not have been individually negotiated or where the company is contracting with a consumer). Certain terms may be altogether unenforceable and others may be enforceable only if they satisfy special tests of reasonableness or fairness.<br>The standard terms will not be binding on the other party and will therefore be useless if proper procedures are not followed to ensure that they are incorporated and prevail over any competing standard terms which the other party may be seeking to impose.<br>There is a danger of staff using the standard terms without reference to the company's legal department for transactions for which they are not appropriate. As a safeguard against this, companies can, for example, establish procedures whereby proposed contracts over a certain value using the company's standard terms are seen by the legal department before they are issued.<br>The use of standard terms cannot be relied on in place of commercial measures such as the maintenance of adequate credit or quality control procedures: they should be in addition to, rather than in substitution for, such measures.<br>Standard terms and conditions require regular review in order to ensure that they take account of legislative changes or new case law and reflect any changes in the business activities of the company. Issues include:<br><br>Preliminary review of contract terms and procedures<br>Incorporation and battle of the forms<br>Pre-contract representation<br>Excluding liability<br>Warranties and indemnities<br>Specification<br>Delivery<br>Acceptance<br>Price<br>Payment<br>Security for payment<br>Packaging<br>Retention of title; risk and insurance<br>Export contracts<br>Boilerplate<br>Contract review</div></span>
+						<div class="checkbox">
+							<label for="terms_conditions"><input type="checkbox" name="terms_conditions" id="terms_conditions" value="1" <%%CHECKED(terms_conditions)%%>> I have read and accepted the Vendor terms and Conditions.<span class="text-danger"><%%TRANSLATION(*)%%></span></label> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#terms_conditions-description"></i>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Reg date -->
+				<div class="form-group supplier-reg_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Reg date</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="reg_date"><%%VALUE(reg_date)%%></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="supplier_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#supplier_dv_container-loading').addClass('hidden');
+			$j('#supplier_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('supplier', 'supp_name');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'supplier',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=supplier&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=supplier&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

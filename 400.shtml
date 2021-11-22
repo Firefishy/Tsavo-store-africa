@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+   	<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Bad request</title>
+	  </head>
+  <body style="font-family:Trebuchet MS; text-align:center; width:100%">
+<div class="container">
+<div class="row">
+<hr />
+<div class="jumbotron" style="width:100%"><h1 style="font-family:Trebuchet MS; color:#D519FF; text-align:center;">400</h1></div>
+<div class="col-sm-12">
+<div class="panel panel-info">Oops! Thats a bad request <!--#echo var="REQUEST_URI" --></div>
+<hr />
+
+</div>
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+<a class="btn btn-primary" href="https://tsavo.store" data-toggle="tooltip" title="Tsavo Homepage">Home</a>
+
+</div>
+<div class="col-sm-4"></div>
+<hr />
+<img src='https://www.linkpicture.com/q/tsavo.jpg' width='100%' style='border:none;border-radius:3px' />
+</div>
+</div>
+  </body>
+</html>

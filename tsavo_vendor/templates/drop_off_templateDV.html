@@ -1,0 +1,361 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/drop_off-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="drop_off_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="drop_off_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="supplier_view.php?filterer_drop_off_point=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="supplier_link"><i class="glyphicon glyphicon-list-alt"></i> Vendor</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="supplier_view.php?filterer_drop_off_point=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="xs_supplier_link"><i class="glyphicon glyphicon-list-alt"></i> Vendor</a>
+			<input type="hidden" id="supplier_hclink" value="supplier_view.php?filterer_drop_off_point=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="drop_off_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Point name -->
+				<div class="form-group drop_off-point_name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="point_name">Point name<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="point_name" id="point_name" value="<%%VALUE(point_name)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: GPRS Location -->
+				<div class="form-group drop_off-location">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="location-edit-link">GPRS Location</label>
+					<div class="col-lg-9">
+						<div class="form-control-static"><div class="rspacer-lg"><%%GOOGLEMAP(location)%%></div><label for="location"><button type="button" id="location-edit-link" class="btn btn-default vspacer-sm" data-toggle="collapse" data-target="#location" title="<%%TRANSLATION(Edit)%%>"><i class="glyphicon glyphicon-pencil"></i></button></label><input type="text" class="form-control collapse" name="location" id="location" value="<%%VALUE(location)%%>"></div>
+					</div>
+				</div>
+
+				<!-- Field: Licence -->
+				<div class="form-group drop_off-licence">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Licence<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#licence-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="licence-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 2000 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a id="licence-link" href="link.php?t=drop_off&f=licence&i=<%%VALUE(id)%%>" target="_blank" class="rspacer-lg"><i class="glyphicon glyphicon-file" title="<%%VALUE(licence)%%>" style="font-size: 4em;"></i></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(licence)%%>
+								<div class="text-bold text-danger file-type-error hidden">
+									<%%TRANSLATION(invalid file type)%%>
+								</div>
+								<div class="text-bold text-danger file-size-error hidden">
+									<%%TRANSLATION(file too large)%%>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>jQuery(function() { var e_licence = '<%%VALUE(licence)%%>'; if(e_licence == '' || e_licence == '&nbsp;' || e_licence == 'blank.gif') jQuery('#licence-link').hide(); });</script>
+					</div>
+				</div>
+
+				<!-- Field: Packages Size accepted -->
+				<div class="form-group drop_off-packages_accepted">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="packages_accepted">Packages Size accepted<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#packages_accepted-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="packages_accepted-description"><div class="alert alert-info bspacer-xs">Small Packages eg Watches, Earphones, Earrings, Small tools, Learning materials etc<br>Medium Packages eg Clothing, Phones, Laptops, Keyboards, Utensils, Groceries etc<br>Large Packages eg Sub-woofers, Televisions, Desktops, Microwaves etc<br>Bulk Packages eg Furniture, fridges, Ovens etc</div></span>
+						<%%COMBO(packages_accepted)%%>
+					</div>
+				</div>
+
+				<!-- Field: Operating licence -->
+				<div class="form-group drop_off-operating_licence">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Operating licence<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#operating_licence-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="operating_licence-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 100 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a id="operating_licence-link" href="link.php?t=drop_off&f=operating_licence&i=<%%VALUE(id)%%>" target="_blank" class="rspacer-lg"><i class="glyphicon glyphicon-file" title="<%%VALUE(operating_licence)%%>" style="font-size: 4em;"></i></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(operating_licence)%%>
+								<div class="text-bold text-danger file-type-error hidden">
+									<%%TRANSLATION(invalid file type)%%>
+								</div>
+								<div class="text-bold text-danger file-size-error hidden">
+									<%%TRANSLATION(file too large)%%>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>jQuery(function() { var e_operating_licence = '<%%VALUE(operating_licence)%%>'; if(e_operating_licence == '' || e_operating_licence == '&nbsp;' || e_operating_licence == 'blank.gif') jQuery('#operating_licence-link').hide(); });</script>
+					</div>
+				</div>
+
+				<!-- Field: Agent email -->
+				<div class="form-group drop_off-station_email">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="station_email-edit-link">Agent email</label>
+					<div class="col-lg-9">
+						<div>
+							<a id="station_email-link" href="mailto:<%%VALUE(station_email)%%>" target="_blank" class="rspacer-lg"><%%VALUE(station_email)%%></a>
+							<label for="station_email"><button type="button" id="station_email-edit-link" class="btn btn-default vspacer-sm" data-toggle="collapse" data-target="#station_email" title="<%%TRANSLATION(Edit)%%>"><i class="glyphicon glyphicon-pencil"></i></button></label>
+							<input maxlength="40" type="text" class="form-control collapse" name="station_email" id="station_email" value="<%%VALUE(station_email)%%>">
+						</div><script>jQuery(function() { var e_station_email = '<%%VALUE(station_email)%%>'; if(e_station_email == '' || e_station_email == '&nbsp;' || e_station_email == 'blank.gif') jQuery('#station_email-link').hide(); });</script>
+					</div>
+				</div>
+
+				<!-- Field: Station photo -->
+				<div class="form-group drop_off-station_photo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Station photo<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#station_photo-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="station_photo-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 3000 KB.<br>Allowed file types: jpg, jpeg, gif, png</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(station_photo)%%>" data-lightbox="drop_off_dv"><img src="thumbnail.php?i=<%%VALUE(station_photo)%%>&t=drop_off&f=station_photo&v=dv" class="img-thumbnail" id="station_photo-image"></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(station_photo)%%>
+								<div class="text-bold text-danger file-type-error hidden"><%%TRANSLATION(invalid file type)%%></div>
+								<div class="text-bold text-danger file-size-error hidden"><%%TRANSLATION(file too large)%%></div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>/* disable links to empty images */ $j(function() { var e_station_photo = '<%%VALUE(station_photo)%%>'; if(e_station_photo == '' || e_station_photo == '&nbsp;' || e_station_photo == 'blank.gif') { $j('#station_photo-link').hide(); $j('#station_photo-image').parents('a').attr('href', '').on('click', function(e) { e.preventDefault(); }); } });</script>
+					</div>
+				</div>
+
+				<!-- Field: Station contact -->
+				<div class="form-group drop_off-station_contact">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="station_contact">Station contact<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="station_contact" id="station_contact" value="<%%VALUE(station_contact)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Agent incharge (Full name) -->
+				<div class="form-group drop_off-agent_incharge">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="agent_incharge">Agent incharge (Full name)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="agent_incharge" id="agent_incharge" value="<%%VALUE(agent_incharge)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Agent id Number -->
+				<div class="form-group drop_off-agent_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="agent_id">Agent id Number</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="agent_id" id="agent_id" value="<%%VALUE(agent_id)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Station reg date -->
+				<div class="form-group drop_off-station_reg_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Station reg date</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="station_reg_date"><%%VALUE(station_reg_date)%%></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="drop_off_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="drop_off-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#drop_off_dv_container-loading').addClass('hidden');
+			$j('#drop_off_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('drop_off', 'point_name');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setTimeout(append_embedded, 500);
+				setTimeout(append_embedded, 1500);
+				setTimeout(append_embedded, 2500);
+				setTimeout(append_embedded, 3500);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'drop_off',
+						SelectedID: '<%%VALUE(id)%%>',
+						Operation: 'show-children'
+					},
+					'drop_off-children'
+				);
+			}
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'drop_off',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=drop_off&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=drop_off&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

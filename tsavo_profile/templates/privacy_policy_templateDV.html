@@ -1,0 +1,282 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/privacy_policy-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="privacy_policy_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="privacy_policy_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="privacy_policy_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: ID -->
+				<div class="form-group privacy_policy-id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="id">ID</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="id"><%%VALUE(id)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Main head -->
+				<div class="form-group privacy_policy-main_head">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="main_head">Main head</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="main_head" id="main_head" value="<%%VALUE(main_head)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Main head content -->
+				<div class="form-group privacy_policy-main_head_content">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="main_head_content">Main head content</label>
+					<div class="col-lg-9 has-nicedit">
+						<%%HTMLAREA(main_head_content)%%>
+					</div>
+				</div>
+
+				<!-- Field: Sub head1 -->
+				<div class="form-group privacy_policy-sub_head1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="sub_head1">Sub head1</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="sub_head1" id="sub_head1" value="<%%VALUE(sub_head1)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Head 1 Content -->
+				<div class="form-group privacy_policy-head_1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="head_1">Head 1 Content</label>
+					<div class="col-lg-9 has-nicedit">
+						<%%HTMLAREA(head_1)%%>
+					</div>
+				</div>
+
+				<!-- Field: Sub head2 -->
+				<div class="form-group privacy_policy-sub_head2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="sub_head2">Sub head2</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="sub_head2" id="sub_head2" value="<%%VALUE(sub_head2)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Head 2 content -->
+				<div class="form-group privacy_policy-head_2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="head_2">Head 2 content</label>
+					<div class="col-lg-9 has-nicedit">
+						<%%HTMLAREA(head_2)%%>
+					</div>
+				</div>
+
+				<!-- Field: Sub head3 -->
+				<div class="form-group privacy_policy-sub_head3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="sub_head3">Sub head3</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="sub_head3" id="sub_head3" value="<%%VALUE(sub_head3)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Head 3 content -->
+				<div class="form-group privacy_policy-head_3">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="head_3">Head 3 content</label>
+					<div class="col-lg-9 has-nicedit">
+						<%%HTMLAREA(head_3)%%>
+					</div>
+				</div>
+
+				<!-- Field: Sub head4 -->
+				<div class="form-group privacy_policy-sub_head4">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="sub_head4">Sub head4</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="sub_head4" id="sub_head4" value="<%%VALUE(sub_head4)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Head 4 content -->
+				<div class="form-group privacy_policy-head_4">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="head_4">Head 4 content</label>
+					<div class="col-lg-9 has-nicedit">
+						<%%HTMLAREA(head_4)%%>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="privacy_policy_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+			AppGini.once({
+				condition: function() { return bkLib != undefined; },
+				action: function() {
+					if($j('textarea#main_head_content').length) new nicEditor({ fullPanel : true }).panelInstance('main_head_content');
+					if($j('textarea#head_1').length) new nicEditor({ fullPanel : true }).panelInstance('head_1');
+					if($j('textarea#head_2').length) new nicEditor({ fullPanel : true }).panelInstance('head_2');
+					if($j('textarea#head_3').length) new nicEditor({ fullPanel : true }).panelInstance('head_3');
+					if($j('textarea#head_4').length) new nicEditor({ fullPanel : true }).panelInstance('head_4');
+				}
+			});
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#privacy_policy_dv_container-loading').addClass('hidden');
+			$j('#privacy_policy_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('privacy_policy', 'main_head');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			// try to detect rich text changes by adding 'input' handler after nicedit is loaded ...
+			AppGini.detectContentEditableChanges();
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'privacy_policy',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=privacy_policy&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=privacy_policy&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

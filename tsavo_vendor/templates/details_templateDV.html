@@ -1,0 +1,447 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/details-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="details_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="details_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="sales_monitor_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="sales_monitor_link"><i class="glyphicon glyphicon-list-alt"></i> Sales monitor</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="sales_monitor_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="xs_sales_monitor_link"><i class="glyphicon glyphicon-list-alt"></i> Sales monitor</a>
+			<input type="hidden" id="sales_monitor_hclink" value="sales_monitor_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="details_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Vendor Order confirmation -->
+				<div class="form-group details-supp_conf">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Vendor Order confirmation</label>
+					<div class="col-lg-9">
+						<%%COMBO(supp_conf)%%>
+					</div>
+				</div>
+
+				<!-- Field: Supp name -->
+				<div class="form-group details-supp_name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Supp name</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="supp_name"></div>
+					</div>
+				</div>
+
+				<!-- Field: Product Status -->
+				<div class="form-group details-details">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="details">Product Status</label>
+					<div class="col-lg-9">
+						<%%COMBO(details)%%>
+					</div>
+				</div>
+
+				<!-- Field: Sales id -->
+				<div class="form-group details-sales_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" data-parent_link="view_parent_modal">Sales id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static">
+							<span id="sales_id-readonly"><%%COMBOTEXT(sales_id)%%></span>
+							<%%PLINK(sales_id)%%>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Pay id -->
+				<div class="form-group details-payy_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Pay id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="payy_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Tracking Number -->
+				<div class="form-group details-reference_number">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Tracking Number</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="reference_number"><%%VALUE(reference_number)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Product id -->
+				<div class="form-group details-product_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" data-parent_link="view_parent_modal">Product id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static">
+							<span id="product_id-readonly"><%%COMBOTEXT(product_id)%%></span>
+							<%%PLINK(product_id)%%>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Product name -->
+				<div class="form-group details-product_name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Product name</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="product_name"><%%VALUE(product_name)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Quantity -->
+				<div class="form-group details-quantity">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Quantity</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="quantity"><%%VALUE(quantity)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Size -->
+				<div class="form-group details-size">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Size</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="size"></div>
+					</div>
+				</div>
+
+				<!-- Field: Sales date -->
+				<div class="form-group details-sales_date">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Sales date</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="sales_date"><%%VALUE(sales_date)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Recipient id -->
+				<div class="form-group details-user_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Recipient id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="user_id"><%%VALUE(user_id)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Recipient firstname -->
+				<div class="form-group details-recipient_fname">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Recipient firstname</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="recipient_fname"><%%VALUE(recipient_fname)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Recipient lastname -->
+				<div class="form-group details-recipient_lname">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Recipient lastname</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="recipient_lname"><%%VALUE(recipient_lname)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Phone info -->
+				<div class="form-group details-recipient_contact">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Phone info</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="recipient_contact"><%%VALUE(recipient_contact)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Recipient Email -->
+				<div class="form-group details-recipient_email">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Recipient Email</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="recipient_email"><%%VALUE(recipient_email)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Recipient address -->
+				<div class="form-group details-recipient_address">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Recipient address</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="recipient_address"><%%VALUE(recipient_address)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Weight -->
+				<div class="form-group details-weight">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Weight</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="weight"><%%VALUE(weight)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Length -->
+				<div class="form-group details-length">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Length</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="length"><%%VALUE(length)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Width -->
+				<div class="form-group details-width">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Width</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="width"><%%VALUE(width)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Height -->
+				<div class="form-group details-height">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Height</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="height"><%%VALUE(height)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Price -->
+				<div class="form-group details-price">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Price</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="price"><%%VALUE(price)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Pick Up Station -->
+				<div class="form-group details-pus">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Pick Up Station</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="pus"><%%VALUE(pus)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Last Edit Date  -->
+				<div class="form-group details-last_edit">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Last Edit Date </label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="last_edit"><%%VALUE(last_edit)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Editor -->
+				<div class="form-group details-editor">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Editor</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="editor"><%%VALUE(editor)%%></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="details_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="details-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#details_dv_container-loading').addClass('hidden');
+			$j('#details_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('details', 'supp_conf');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setTimeout(append_embedded, 500);
+				setTimeout(append_embedded, 1500);
+				setTimeout(append_embedded, 2500);
+				setTimeout(append_embedded, 3500);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'details',
+						SelectedID: '<%%VALUE(id)%%>',
+						Operation: 'show-children'
+					},
+					'details-children'
+				);
+			}
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'details',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=details&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=details&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

@@ -1,0 +1,15 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the branches_init() hook (in hooks/branches.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="branches-branch_code-<%%VALUE(id)%%>" class="branches-branch_code"><%%SELECT%%><%%VALUE(branch_code)%%><%%ENDSELECT%%></td>
+		<td id="branches-country-<%%VALUE(id)%%>" class="branches-country"><%%SELECT%%><%%VALUE(country)%%><%%ENDSELECT%%></td>
+		<td id="branches-city-<%%VALUE(id)%%>" class="branches-city"><%%SELECT%%><%%VALUE(city)%%><%%ENDSELECT%%></td>
+		<td id="branches-zonee-<%%VALUE(id)%%>" class="branches-zonee"><%%SELECT%%><%%VALUE(zonee)%%><%%ENDSELECT%%></td>
+		<td id="branches-state-<%%VALUE(id)%%>" class="branches-state text-right"><%%SELECT%%><%%VALUE(state)%%><%%ENDSELECT%%></td>
+		<td id="branches-price-<%%VALUE(id)%%>" class="branches-price text-right"><%%SELECT%%><%%VALUE(price)%%><%%ENDSELECT%%></td>
+		<td id="branches-zip_code-<%%VALUE(id)%%>" class="branches-zip_code text-right"><%%SELECT%%><%%VALUE(zip_code)%%><%%ENDSELECT%%></td>
+		<td id="branches-contact-<%%VALUE(id)%%>" class="branches-contact"><%%SELECT%%><%%VALUE(contact)%%><%%ENDSELECT%%></td>

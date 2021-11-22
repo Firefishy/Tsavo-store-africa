@@ -1,0 +1,13 @@
+Things to note:
+Database table details
+The column product_name is item_name on the UI
+The column quantity is item_quantity on the UI
+The column product_id is item_id on the UI
+The column date_created is sales_date on the UI
+
+
+Database table details
+The column product_name is item_name on the UI
+The column quantity is item_quantity on the UI
+The column product_id is item_id on the UI
+The column date_created is sales_date on the UI

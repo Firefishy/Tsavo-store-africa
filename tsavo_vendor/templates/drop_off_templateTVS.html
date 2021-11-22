@@ -1,0 +1,47 @@
+		<td colspan="11" class="row">
+			<div class="col-md-6">
+				<dl class="dl-horizontal">
+					<dt class="drop_off-point_name-caption field-caption-tv">Point name</dt>
+					<dd id="drop_off-point_name-<%%VALUE(id)%%>" class="drop_off-point_name"><%%VALUE(point_name)%%></dd>
+
+					<dt class="drop_off-location-caption field-caption-tv">GPRS Location</dt>
+					<dd id="drop_off-location-<%%VALUE(id)%%>" class="drop_off-location"><img src="<%%GOOGLEMAPTHUMB(location)%%>" style="max-width: 250px; max-height: 150px; " ></dd>
+
+					<dt class="drop_off-licence-caption field-caption-tv">Licence</dt>
+					<dd id="drop_off-licence-<%%VALUE(id)%%>" class="drop_off-licence"><a href="link.php?t=drop_off&f=licence&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(licence)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-file text-info"></i></a></dd>
+
+					<dt class="drop_off-packages_accepted-caption field-caption-tv">Packages Size accepted</dt>
+					<dd id="drop_off-packages_accepted-<%%VALUE(id)%%>" class="drop_off-packages_accepted"><%%VALUE(packages_accepted)%%></dd>
+
+					<dt class="drop_off-operating_licence-caption field-caption-tv">Operating licence</dt>
+					<dd id="drop_off-operating_licence-<%%VALUE(id)%%>" class="drop_off-operating_licence"><a href="link.php?t=drop_off&f=operating_licence&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(operating_licence)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-file text-info"></i></a></dd>
+
+					<dt class="drop_off-station_email-caption field-caption-tv">Agent email</dt>
+					<dd id="drop_off-station_email-<%%VALUE(id)%%>" class="drop_off-station_email"><a href="mailto:<%%VALUE(station_email)%%>"><%%VALUE(station_email)%%></a></dd>
+
+				</dl>
+			</div>
+			<div class="col-md-6">
+				<dl class="dl-horizontal">
+					<dt class="drop_off-station_photo-caption field-caption-tv">Station photo</dt>
+					<dd id="drop_off-station_photo-<%%VALUE(id)%%>" class="drop_off-station_photo"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(station_photo)%%>" data-lightbox="drop_off-station_photo"><img src="thumbnail.php?i=<%%VALUE(station_photo)%%>&t=drop_off&f=station_photo&v=tv" class="img-thumbnail"></a></dd>
+
+					<dt class="drop_off-station_contact-caption field-caption-tv">Station contact</dt>
+					<dd id="drop_off-station_contact-<%%VALUE(id)%%>" class="drop_off-station_contact"><%%VALUE(station_contact)%%></dd>
+
+					<dt class="drop_off-agent_incharge-caption field-caption-tv">Agent incharge (Full name)</dt>
+					<dd id="drop_off-agent_incharge-<%%VALUE(id)%%>" class="drop_off-agent_incharge"><%%VALUE(agent_incharge)%%></dd>
+
+					<dt class="drop_off-agent_id-caption field-caption-tv">Agent id Number</dt>
+					<dd id="drop_off-agent_id-<%%VALUE(id)%%>" class="drop_off-agent_id"><%%VALUE(agent_id)%%></dd>
+
+					<dt class="drop_off-station_reg_date-caption field-caption-tv">Station reg date</dt>
+					<dd id="drop_off-station_reg_date-<%%VALUE(id)%%>" class="drop_off-station_reg_date"><%%VALUE(station_reg_date)%%></dd>
+
+				</dl>
+			</div>
+		</td>
+		<script>$j(function() {
+			var e_licence = '<%%VALUE(licence)%%>'; if(e_licence == '' || e_licence == '&nbsp;') $j(/*<*/ '#drop_off-licence-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_operating_licence = '<%%VALUE(operating_licence)%%>'; if(e_operating_licence == '' || e_operating_licence == '&nbsp;') $j(/*<*/ '#drop_off-operating_licence-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>

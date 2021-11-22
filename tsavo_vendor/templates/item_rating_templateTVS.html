@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the item_rating_init() hook (in hooks/item_rating.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="item_rating-itemId-<%%VALUE(ratingId)%%>" class="item_rating-itemId"><%%VALUE(itemId)%%></td>
+		<td id="item_rating-userId-<%%VALUE(ratingId)%%>" class="item_rating-userId"><%%VALUE(userId)%%></td>
+		<td id="item_rating-rater_name-<%%VALUE(ratingId)%%>" class="item_rating-rater_name"><%%VALUE(rater_name)%%></td>
+		<td id="item_rating-ratingNumber-<%%VALUE(ratingId)%%>" class="item_rating-ratingNumber"><%%VALUE(ratingNumber)%%></td>
+		<td id="item_rating-title-<%%VALUE(ratingId)%%>" class="item_rating-title"><%%VALUE(title)%%></td>
+		<td id="item_rating-comments-<%%VALUE(ratingId)%%>" class="item_rating-comments"><%%VALUE(comments)%%></td>
+		<td id="item_rating-created-<%%VALUE(ratingId)%%>" class="item_rating-created"><%%VALUE(created)%%></td>

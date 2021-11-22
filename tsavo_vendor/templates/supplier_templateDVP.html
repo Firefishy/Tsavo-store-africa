@@ -1,0 +1,247 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Vendor ID -->
+		<div class="form-group supplier-supp_slug" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Vendor ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(supp_slug)%%></div>
+			</div>
+		</div>
+		<!-- Field: Shop/Company Name -->
+		<div class="form-group supplier-name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Shop/Company Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Shop id -->
+		<div class="form-group supplier-shop_id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Shop id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(shop_id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Supplier's Registered user Name -->
+		<div class="form-group supplier-supp_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Supplier's Registered user Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(supp_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Phone Number -->
+		<div class="form-group supplier-supp_contact" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Phone Number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(supp_contact)%%></div>
+			</div>
+		</div>
+		<!-- Field: Id number -->
+		<div class="form-group supplier-id_number" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Id number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id_number)%%></div>
+			</div>
+		</div>
+		<!-- Field: Passport (For Non-Citizens) -->
+		<div class="form-group supplier-passport" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Passport (For Non-Citizens)</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(passport)%%></div>
+			</div>
+		</div>
+		<!-- Field: Gender -->
+		<div class="form-group supplier-gender" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Gender</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(gender)%%></div>
+			</div>
+		</div>
+		<!-- Field: Scanned Id/Passport Card -->
+		<div class="form-group supplier-identity_no" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Scanned Id/Passport Card</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="identity_no-link" href="link.php?t=supplier&f=identity_no&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-file" title="<%%VALUE(identity_no)%%>"></i></a><script>jQuery(function() { var e_identity_no = '<%%VALUE(identity_no)%%>'; if(e_identity_no == '' || e_identity_no == '&nbsp;' || e_identity_no == 'blank.gif') jQuery('#identity_no-link').hide(); });</script></div>
+			</div>
+		</div>
+		<!-- Field: Scanned Business Licence -->
+		<div class="form-group supplier-licence_no" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Scanned Business Licence</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var licence_noSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(licence_no)%%>';
+				var licence_noSrc2<%%RND1%%>='thumbnail.php?t=supplier&f=licence_no&i=<%%VALUE(licence_no)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('licence_noImg<%%RND1%%>').src=($('licence_noImg<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && licence_noSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? licence_noSrc1<%%RND1%%> : licence_noSrc2<%%RND1%%>); return false;"><img id="licence_noImg<%%RND1%%>" src="thumbnail.php?t=supplier&f=licence_no&i=<%%VALUE(licence_no)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Email -->
+		<div class="form-group supplier-email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Email</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(email)%%></div>
+			</div>
+		</div>
+		<!-- Field: Address -->
+		<div class="form-group supplier-address" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Address</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(address)%%></div>
+			</div>
+		</div>
+		<!-- Field: Photo -->
+		<div class="form-group supplier-photo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Photo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var photoSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>';
+				var photoSrc2<%%RND1%%>='thumbnail.php?t=supplier&f=photo&i=<%%VALUE(photo)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('photoImg<%%RND1%%>').src=($('photoImg<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && photoSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? photoSrc1<%%RND1%%> : photoSrc2<%%RND1%%>); return false;"><img id="photoImg<%%RND1%%>" src="thumbnail.php?t=supplier&f=photo&i=<%%VALUE(photo)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Origin country -->
+		<div class="form-group supplier-origin_country" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Origin country</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(origin_country)%%></div>
+			</div>
+		</div>
+		<!-- Field: Store overview -->
+		<div class="form-group supplier-store_overview" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Store overview</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var store_overviewSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(store_overview)%%>';
+				var store_overviewSrc2<%%RND1%%>='thumbnail.php?t=supplier&f=store_overview&i=<%%VALUE(store_overview)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('store_overviewImg<%%RND1%%>').src=($('store_overviewImg<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && store_overviewSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? store_overviewSrc1<%%RND1%%> : store_overviewSrc2<%%RND1%%>); return false;"><img id="store_overviewImg<%%RND1%%>" src="thumbnail.php?t=supplier&f=store_overview&i=<%%VALUE(store_overview)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Drop off point -->
+		<div class="form-group supplier-drop_off_point" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Drop off point</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="drop_off_point<%%RND1%%>"><%%COMBOTEXT(drop_off_point)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Drop off contact -->
+		<div class="form-group supplier-drop_off_contact" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Drop off contact</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="drop_off_contact<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<!-- Field: Created_on -->
+		<div class="form-group supplier-created_on" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Created_on</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(created_on)%%></div>
+			</div>
+		</div>
+		<!-- Field: <---------------BANK DETAILS------------------> -->
+		<div class="form-group supplier-bank_head" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label"><---------------BANK DETAILS------------------></label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(bank_head)%%></div>
+			</div>
+		</div>
+		<!-- Field: Service provider -->
+		<div class="form-group supplier-service_provider" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Service provider</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(service_provider)%%></div>
+			</div>
+		</div>
+		<!-- Field: Service Provider Registered name -->
+		<div class="form-group supplier-sp_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Service Provider Registered name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(sp_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Service Provider Registered number -->
+		<div class="form-group supplier-sp_number" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Service Provider Registered number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(sp_number)%%></div>
+			</div>
+		</div>
+		<!-- Field: Account name -->
+		<div class="form-group supplier-account_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Account name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(account_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Account number -->
+		<div class="form-group supplier-account_number" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Account number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(account_number)%%></div>
+			</div>
+		</div>
+		<!-- Field: IBAN number -->
+		<div class="form-group supplier-iban_number" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">IBAN number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(iban_number)%%></div>
+			</div>
+		</div>
+		<!-- Field: Bank name -->
+		<div class="form-group supplier-bank_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Bank name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(bank_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Bank branch -->
+		<div class="form-group supplier-bank_branch" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Bank branch</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(bank_branch)%%></div>
+			</div>
+		</div>
+		<!-- Field: Bank code -->
+		<div class="form-group supplier-bank_code" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Bank code</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(bank_code)%%></div>
+			</div>
+		</div>
+		<!-- Field: Mode of transfer -->
+		<div class="form-group supplier-mode_of_transfer" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Mode of transfer</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(mode_of_transfer)%%></div>
+			</div>
+		</div>
+		<!-- Field: I have read and accepted the Vendor terms and Conditions. -->
+		<div class="form-group supplier-terms_conditions" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">I have read and accepted the Vendor terms and Conditions.</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="terms_conditions" id="terms_conditions" value="1" <%%CHECKED(terms_conditions)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Reg date -->
+		<div class="form-group supplier-reg_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Reg date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(reg_date)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>

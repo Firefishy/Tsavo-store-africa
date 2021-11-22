@@ -1,0 +1,16 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the cart_init() hook (in hooks/cart.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="cart-first_name-<%%VALUE(id)%%>" class="cart-first_name"><%%SELECT%%><%%VALUE(first_name)%%><%%ENDSELECT%%></td>
+		<td id="cart-last_name-<%%VALUE(id)%%>" class="cart-last_name"><%%SELECT%%><%%VALUE(last_name)%%><%%ENDSELECT%%></td>
+		<td id="cart-product_name-<%%VALUE(id)%%>" class="cart-product_name"><%%SELECT%%><%%VALUE(product_name)%%><%%ENDSELECT%%></td>
+		<td id="cart-price-<%%VALUE(id)%%>" class="cart-price text-right"><%%SELECT%%><%%VALUE(price)%%><%%ENDSELECT%%></td>
+		<td id="cart-user_cont-<%%VALUE(id)%%>" class="cart-user_cont"><%%SELECT%%><%%VALUE(user_cont)%%><%%ENDSELECT%%></td>
+		<td id="cart-user_email-<%%VALUE(id)%%>" class="cart-user_email"><%%SELECT%%><%%VALUE(user_email)%%><%%ENDSELECT%%></td>
+		<td id="cart-zone_pus-<%%VALUE(id)%%>" class="cart-zone_pus"><%%SELECT%%><%%VALUE(zone_pus)%%><%%ENDSELECT%%></td>
+		<td id="cart-coupon_user-<%%VALUE(id)%%>" class="cart-coupon_user"><%%SELECT%%><%%VALUE(coupon_user)%%><%%ENDSELECT%%></td>
+		<td id="cart-coupon_user_worth-<%%VALUE(id)%%>" class="cart-coupon_user_worth"><%%SELECT%%><%%VALUE(coupon_user_worth)%%><%%ENDSELECT%%></td>

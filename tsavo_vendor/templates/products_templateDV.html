@@ -1,0 +1,631 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/products-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="products_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="products_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="stock_view.php?filterer_product_name=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="stock_link"><i class="glyphicon glyphicon-list-alt"></i> Stock</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="stock_view.php?filterer_product_name=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="xs_stock_link"><i class="glyphicon glyphicon-list-alt"></i> Stock</a>
+			<input type="hidden" id="stock_hclink" value="stock_view.php?filterer_product_name=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="details_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="details_link"><i class="glyphicon glyphicon-list-alt"></i> Order Details</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="details_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="xs_details_link"><i class="glyphicon glyphicon-list-alt"></i> Order Details</a>
+			<input type="hidden" id="details_hclink" value="details_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm vspacer-sm" href="wishlist_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="wishlist_link"><i class="glyphicon glyphicon-list-alt"></i> Wishlist</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="wishlist_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>" id="xs_wishlist_link"><i class="glyphicon glyphicon-list-alt"></i> Wishlist</a>
+			<input type="hidden" id="wishlist_hclink" value="wishlist_view.php?filterer_product_id=<%%URLVALUE(id)%%>&<%%EMBEDDED%%>">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="products_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Your shop id -->
+				<div class="form-group products-supp_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="supp_id">Your shop id<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#supp_id-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="supp_id-description"><div class="alert alert-info bspacer-xs">Your created shop id. Note if you mispell your shop id your product will not appear in your shop account.</div></span>
+						<input maxlength="40" type="text" class="form-control" name="supp_id" id="supp_id" value="<%%VALUE(supp_id)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Vendor Name(Auto generated) -->
+				<div class="form-group products-supplier">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Vendor Name(Auto generated)</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="supplier"><%%VALUE(supplier)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Vendor's Email (Add your main email) -->
+				<div class="form-group products-supp_email">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="supp_email-edit-link">Vendor's Email (Add your main email)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<div>
+							<a id="supp_email-link" href="mailto:<%%VALUE(supp_email)%%>" target="_blank" class="rspacer-lg"><%%VALUE(supp_email)%%></a>
+							<label for="supp_email"><button type="button" id="supp_email-edit-link" class="btn btn-default vspacer-sm" data-toggle="collapse" data-target="#supp_email" title="<%%TRANSLATION(Edit)%%>"><i class="glyphicon glyphicon-pencil"></i></button></label>
+							<input maxlength="40" type="text" class="form-control collapse" name="supp_email" id="supp_email" value="<%%VALUE(supp_email)%%>" required>
+						</div><script>jQuery(function() { var e_supp_email = '<%%VALUE(supp_email)%%>'; if(e_supp_email == '' || e_supp_email == '&nbsp;' || e_supp_email == 'blank.gif') jQuery('#supp_email-link').hide(); });</script>
+					</div>
+				</div>
+
+				<!-- Field: Vendor Contact line( Add your main phone number) -->
+				<div class="form-group products-supp_cont">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="supp_cont">Vendor Contact line( Add your main phone number)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="supp_cont" id="supp_cont" value="<%%VALUE(supp_cont)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Product Category -->
+				<div class="form-group products-category">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="category" data-parent_link="view_parent_hidden">Product Category</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(category)%%><%%ADDNEW(category)%%><span id="categoryLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Category ID -->
+				<div class="form-group products-category_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Category ID</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="category_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Country the Stock is located -->
+				<div class="form-group products-ship_orig">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ship_orig">Country the Stock is located<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#ship_orig-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="ship_orig-description"><div class="alert alert-info bspacer-xs">Where is the product being sourced from. The country your business is located.</div></span>
+						<%%COMBO(ship_orig)%%>
+					</div>
+				</div>
+
+				<!-- Field: Stock Quantity -->
+				<div class="form-group products-prod_qty">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="prod_qty">Stock Quantity<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="50" type="text" class="form-control" name="prod_qty" id="prod_qty" value="<%%VALUE(prod_qty)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: UPC/ISBN/EAN -->
+				<div class="form-group products-barcode">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="barcode">UPC/ISBN/EAN<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="100" type="text" class="form-control" name="barcode" id="barcode" value="<%%VALUE(barcode)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Product Name -->
+				<div class="form-group products-name">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="name">Product Name<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="60" type="text" class="form-control" name="name" id="name" value="<%%VALUE(name)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Brand -->
+				<div class="form-group products-brand">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="brand">Brand<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="brand" id="brand" value="<%%VALUE(brand)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Product photo -->
+				<div class="form-group products-photo">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Product photo<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="photo-description"><div class="alert alert-info bspacer-xs">Maximum file size allowed: 3000 KB.<br>Allowed file types: jpg, jpeg, gif, png</div></span>
+						<div class="form-control-static well well-sm">
+							<div class="pull-left"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>" data-lightbox="products_dv"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=products&f=photo&v=dv" class="img-thumbnail" id="photo-image"></a></div>
+							<div class="pull-right well upload-toolbox">
+								<div class="hidden-md hidden-lg vspacer-lg"></div>
+								<%%UPLOADFILE(photo)%%>
+								<div class="text-bold text-danger file-type-error hidden"><%%TRANSLATION(invalid file type)%%></div>
+								<div class="text-bold text-danger file-size-error hidden"><%%TRANSLATION(file too large)%%></div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<script>/* disable links to empty images */ $j(function() { var e_photo = '<%%VALUE(photo)%%>'; if(e_photo == '' || e_photo == '&nbsp;' || e_photo == 'blank.gif') { $j('#photo-link').hide(); $j('#photo-image').parents('a').attr('href', '').on('click', function(e) { e.preventDefault(); }); } });</script>
+					</div>
+				</div>
+
+				<!-- Field: Description Size -->
+				<div class="form-group products-size">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="size">Description Size<span class="text-danger"><%%TRANSLATION(*)%%></span> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#size-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="size-description"><div class="alert alert-info bspacer-xs">Eg 32 inch, 24inch for tvs,,<br> size 40, size 42 for foot wear<br>1 liter, 2 liter,<br>etc</div></span>
+						<input maxlength="40" type="text" class="form-control" name="size" id="size" value="<%%VALUE(size)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Main material -->
+				<div class="form-group products-material">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="material">Main material <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#material-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="material-description"><div class="alert alert-info bspacer-xs">Main material used to make th body of the product.</div></span>
+						<input maxlength="40" type="text" class="form-control" name="material" id="material" value="<%%VALUE(material)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Length(CMs) -->
+				<div class="form-group products-length">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="length">Length(CMs)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="length" id="length" value="<%%VALUE(length)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Width(CMs) -->
+				<div class="form-group products-width">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="width">Width(CMs)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="width" id="width" value="<%%VALUE(width)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Height(CMs) -->
+				<div class="form-group products-height">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="height">Height(CMs)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" name="height" id="height" value="<%%VALUE(height)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Weight(KGs) -->
+				<div class="form-group products-weight">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="weight">Weight(KGs)<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="weight" id="weight" value="<%%VALUE(weight)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Views Today -->
+				<div class="form-group products-counter">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Views Today</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="counter"><%%VALUE(counter)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Main Price -->
+				<div class="form-group products-price_1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="price_1">Main Price</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="price_1" id="price_1" value="<%%VALUE(price_1)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Was -->
+				<div class="form-group products-was">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="was">Was</label>
+					<div class="col-lg-9">
+						<input maxlength="11" type="text" class="form-control" name="was" id="was" value="<%%VALUE(was)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Company Charge -->
+				<div class="form-group products-price_2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Company Charge</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="price_2"><%%VALUE(price_2)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Shipping weight charge -->
+				<div class="form-group products-shipping_add">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Shipping weight charge</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="shipping_add"><%%VALUE(shipping_add)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Net Price -->
+				<div class="form-group products-price">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Net Price</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="price"><%%VALUE(price)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Product Description -->
+				<div class="form-group products-description">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="description">Product Description <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#description-description"></i></label>
+					<div class="col-lg-9 has-nicedit">
+						<span class="help-block bspacer-xs collapse" id="description-description"><div class="alert alert-info bspacer-xs">Give vivid description of your product. A well described product improves the chances of your product getting more sales.<br>You could also add an embedded youtube video or a html video link of your video giving directions on how to use the product. </div></span>
+						<%%HTMLAREA(description)%%>
+					</div>
+				</div>
+
+				<!-- Field: What is in the box -->
+				<div class="form-group products-more_desc">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="more_desc">What is in the box <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#more_desc-description"></i></label>
+					<div class="col-lg-9 has-nicedit">
+						<span class="help-block bspacer-xs collapse" id="more_desc-description"><div class="alert alert-info bspacer-xs">Put down everything that the customer will find in the box. Write the in a bulleted and bolded list.</div></span>
+						<%%HTMLAREA(more_desc)%%>
+					</div>
+				</div>
+
+				<!-- Field: Seller SKU -->
+				<div class="form-group products-seller_sku">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="seller_sku">Seller SKU</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="seller_sku" id="seller_sku" value="<%%VALUE(seller_sku)%%>">
+					</div>
+				</div>
+
+				<!-- Field: ON THE SECTION BELOW IS FOR CLOTHING AND SHOES. YOU ARE TO LABEL THE SIZE OF THE CLOTHING/SHOE THAT YOU ARE ADDING. -->
+				<div class="form-group products-note">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">ON THE SECTION BELOW IS FOR CLOTHING AND SHOES. YOU ARE TO LABEL THE SIZE OF THE CLOTHING/SHOE THAT YOU ARE ADDING.</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="note"><%%VALUE(note)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Male shoes -->
+				<div class="form-group products-male_shoes">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="male_shoes" data-parent_link="view_parent_modal">Male shoes</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(male_shoes)%%><%%PLINK(male_shoes)%%><%%ADDNEW(male_shoes)%%><span id="male_shoesLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Male shoes id -->
+				<div class="form-group products-male_shoes_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Male shoes id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="male_shoes_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Male pants -->
+				<div class="form-group products-male_pants">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="male_pants" data-parent_link="view_parent_modal">Male pants</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(male_pants)%%><%%PLINK(male_pants)%%><%%ADDNEW(male_pants)%%><span id="male_pantsLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Male pants id -->
+				<div class="form-group products-male_pants_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Male pants id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="male_pants_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Male shirts -->
+				<div class="form-group products-male_shirts">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="male_shirts" data-parent_link="view_parent_modal">Male shirts</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(male_shirts)%%><%%PLINK(male_shirts)%%><%%ADDNEW(male_shirts)%%><span id="male_shirtsLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Male shirts id -->
+				<div class="form-group products-male_shirts_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Male shirts id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="male_shirts_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Female shoes -->
+				<div class="form-group products-female_shoes">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="female_shoes" data-parent_link="view_parent_modal">Female shoes</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(female_shoes)%%><%%PLINK(female_shoes)%%><%%ADDNEW(female_shoes)%%><span id="female_shoesLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Female shoes id -->
+				<div class="form-group products-female_shoes_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Female shoes id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="female_shoes_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Female dresses -->
+				<div class="form-group products-female_dresses">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="female_dresses" data-parent_link="view_parent_modal">Female dresses</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(female_dresses)%%><%%PLINK(female_dresses)%%><%%ADDNEW(female_dresses)%%><span id="female_dressesLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Female dresses id -->
+				<div class="form-group products-female_dresses_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Female dresses id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="female_dresses_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Female skirts -->
+				<div class="form-group products-female_skirts">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="female_skirts" data-parent_link="view_parent_modal">Female skirts</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(female_skirts)%%><%%PLINK(female_skirts)%%><%%ADDNEW(female_skirts)%%><span id="female_skirtsLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Female skirts id -->
+				<div class="form-group products-female_skirts_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Female skirts id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="female_skirts_id"></div>
+					</div>
+				</div>
+
+				<!-- Field: Female pants -->
+				<div class="form-group products-female_pants">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="female_pants" data-parent_link="view_parent_modal">Female pants</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" style="white-space: nowrap; overflow-x: hidden;"><%%COMBO(female_pants)%%><%%PLINK(female_pants)%%><%%ADDNEW(female_pants)%%><span id="female_pantsLoading"></span></div>
+					</div>
+				</div>
+
+				<!-- Field: Female pants id -->
+				<div class="form-group products-female_pants_id">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Female pants id</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="female_pants_id"></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="products_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="products-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+			AppGini.once({
+				condition: function() { return bkLib != undefined; },
+				action: function() {
+					if($j('textarea#description').length) new nicEditor({ fullPanel : true }).panelInstance('description');
+					if($j('textarea#more_desc').length) new nicEditor({ fullPanel : true }).panelInstance('more_desc');
+				}
+			});
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#products_dv_container-loading').addClass('hidden');
+			$j('#products_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('products', 'supp_id');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			// try to detect rich text changes by adding 'input' handler after nicedit is loaded ...
+			AppGini.detectContentEditableChanges();
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setTimeout(append_embedded, 500);
+				setTimeout(append_embedded, 1500);
+				setTimeout(append_embedded, 2500);
+				setTimeout(append_embedded, 3500);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'products',
+						SelectedID: '<%%VALUE(id)%%>',
+						Operation: 'show-children'
+					},
+					'products-children'
+				);
+			}
+
+			if(true /* !embedded_mode */) {
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'products',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=products&id=<%%URLVALUE(id)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=products&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

@@ -1,0 +1,101 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?e7d7f036e33ad8024777422fd7a89666") format("truetype"),
+url("./flaticon.woff?e7d7f036e33ad8024777422fd7a89666") format("woff"),
+url("./flaticon.woff2?e7d7f036e33ad8024777422fd7a89666") format("woff2"),
+url("./flaticon.eot?e7d7f036e33ad8024777422fd7a89666#iefix") format("embedded-opentype"),
+url("./flaticon.svg?e7d7f036e33ad8024777422fd7a89666#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "snack": "\f101",
+    "cabbage": "\f102",
+    "coffee": "\f103",
+    "jam": "\f104",
+    "cola": "\f105",
+    "smartphone": "\f106",
+    "phone-with-buttons-keyboard": "\f107",
+    "telephone": "\f108",
+    "smart-tv": "\f109",
+    "smart-tv-1": "\f10a",
+    "suit-and-tie-outfit": "\f10b",
+    "women-suit": "\f10c",
+    "teenage": "\f10d",
+    "teenage-1": "\f10e",
+    "electronics": "\f10f",
+    "blender": "\f110",
+    "cutlery": "\f111",
+    "bed": "\f112",
+    "wood-stool": "\f113",
+);
+
+.flaticon-snack:before {
+    content: map-get($flaticon-map, "snack");
+}
+.flaticon-cabbage:before {
+    content: map-get($flaticon-map, "cabbage");
+}
+.flaticon-coffee:before {
+    content: map-get($flaticon-map, "coffee");
+}
+.flaticon-jam:before {
+    content: map-get($flaticon-map, "jam");
+}
+.flaticon-cola:before {
+    content: map-get($flaticon-map, "cola");
+}
+.flaticon-smartphone:before {
+    content: map-get($flaticon-map, "smartphone");
+}
+.flaticon-phone-with-buttons-keyboard:before {
+    content: map-get($flaticon-map, "phone-with-buttons-keyboard");
+}
+.flaticon-telephone:before {
+    content: map-get($flaticon-map, "telephone");
+}
+.flaticon-smart-tv:before {
+    content: map-get($flaticon-map, "smart-tv");
+}
+.flaticon-smart-tv-1:before {
+    content: map-get($flaticon-map, "smart-tv-1");
+}
+.flaticon-suit-and-tie-outfit:before {
+    content: map-get($flaticon-map, "suit-and-tie-outfit");
+}
+.flaticon-women-suit:before {
+    content: map-get($flaticon-map, "women-suit");
+}
+.flaticon-teenage:before {
+    content: map-get($flaticon-map, "teenage");
+}
+.flaticon-teenage-1:before {
+    content: map-get($flaticon-map, "teenage-1");
+}
+.flaticon-electronics:before {
+    content: map-get($flaticon-map, "electronics");
+}
+.flaticon-blender:before {
+    content: map-get($flaticon-map, "blender");
+}
+.flaticon-cutlery:before {
+    content: map-get($flaticon-map, "cutlery");
+}
+.flaticon-bed:before {
+    content: map-get($flaticon-map, "bed");
+}
+.flaticon-wood-stool:before {
+    content: map-get($flaticon-map, "wood-stool");
+}

@@ -1,0 +1,106 @@
+		<td colspan="31" class="row">
+			<div class="col-md-6">
+				<dl class="dl-horizontal">
+					<dt class="supplier-supp_slug-caption field-caption-tv">Vendor ID</dt>
+					<dd id="supplier-supp_slug-<%%VALUE(id)%%>" class="supplier-supp_slug"><%%SELECT%%><%%VALUE(supp_slug)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-name-caption field-caption-tv">Shop/Company Name</dt>
+					<dd id="supplier-name-<%%VALUE(id)%%>" class="supplier-name"><%%SELECT%%><%%VALUE(name)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-shop_id-caption field-caption-tv">Shop id</dt>
+					<dd id="supplier-shop_id-<%%VALUE(id)%%>" class="supplier-shop_id"><%%SELECT%%><%%VALUE(shop_id)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-supp_name-caption field-caption-tv">Supplier's Registered user Name</dt>
+					<dd id="supplier-supp_name-<%%VALUE(id)%%>" class="supplier-supp_name"><%%SELECT%%><%%VALUE(supp_name)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-supp_contact-caption field-caption-tv">Phone Number</dt>
+					<dd id="supplier-supp_contact-<%%VALUE(id)%%>" class="supplier-supp_contact"><%%SELECT%%><%%VALUE(supp_contact)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-id_number-caption field-caption-tv">Id number</dt>
+					<dd id="supplier-id_number-<%%VALUE(id)%%>" class="supplier-id_number"><%%SELECT%%><%%VALUE(id_number)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-passport-caption field-caption-tv">Passport (For Non-Citizens)</dt>
+					<dd id="supplier-passport-<%%VALUE(id)%%>" class="supplier-passport"><%%SELECT%%><%%VALUE(passport)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-gender-caption field-caption-tv">Gender</dt>
+					<dd id="supplier-gender-<%%VALUE(id)%%>" class="supplier-gender"><%%SELECT%%><%%VALUE(gender)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-identity_no-caption field-caption-tv">Scanned Id/Passport Card</dt>
+					<dd id="supplier-identity_no-<%%VALUE(id)%%>" class="supplier-identity_no"><a href="link.php?t=supplier&f=identity_no&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(identity_no)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-file text-info"></i></a></dd>
+
+					<dt class="supplier-licence_no-caption field-caption-tv">Scanned Business Licence</dt>
+					<dd id="supplier-licence_no-<%%VALUE(id)%%>" class="supplier-licence_no"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(licence_no)%%>" data-lightbox="supplier-licence_no"><img src="thumbnail.php?i=<%%VALUE(licence_no)%%>&t=supplier&f=licence_no&v=tv" class="img-thumbnail"></a></dd>
+
+					<dt class="supplier-email-caption field-caption-tv">Email</dt>
+					<dd id="supplier-email-<%%VALUE(id)%%>" class="supplier-email"><a href="mailto:<%%VALUE(email)%%>"><%%VALUE(email)%%></a></dd>
+
+					<dt class="supplier-address-caption field-caption-tv">Address</dt>
+					<dd id="supplier-address-<%%VALUE(id)%%>" class="supplier-address"><%%SELECT%%><%%VALUE(address)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-photo-caption field-caption-tv">Photo</dt>
+					<dd id="supplier-photo-<%%VALUE(id)%%>" class="supplier-photo"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>" data-lightbox="supplier-photo"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=supplier&f=photo&v=tv" class="img-thumbnail"></a></dd>
+
+					<dt class="supplier-origin_country-caption field-caption-tv">Origin country</dt>
+					<dd id="supplier-origin_country-<%%VALUE(id)%%>" class="supplier-origin_country"><%%SELECT%%><%%VALUE(origin_country)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-store_overview-caption field-caption-tv">Store overview</dt>
+					<dd id="supplier-store_overview-<%%VALUE(id)%%>" class="supplier-store_overview"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(store_overview)%%>" data-lightbox="supplier-store_overview"><img src="thumbnail.php?i=<%%VALUE(store_overview)%%>&t=supplier&f=store_overview&v=tv" class="img-thumbnail"></a></dd>
+
+					<dt class="supplier-drop_off_point-caption field-caption-tv">Drop off point</dt>
+					<dd id="supplier-drop_off_point-<%%VALUE(id)%%>" class="supplier-drop_off_point"><%%SELECT%%><%%VALUE(drop_off_point)%%><%%ENDSELECT%%></dd>
+
+				</dl>
+			</div>
+			<div class="col-md-6">
+				<dl class="dl-horizontal">
+					<dt class="supplier-drop_off_contact-caption field-caption-tv">Drop off contact</dt>
+					<dd id="supplier-drop_off_contact-<%%VALUE(id)%%>" class="supplier-drop_off_contact"><%%SELECT%%><%%VALUE(drop_off_contact)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-created_on-caption field-caption-tv">Created_on</dt>
+					<dd id="supplier-created_on-<%%VALUE(id)%%>" class="supplier-created_on"><%%SELECT%%><%%VALUE(created_on)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-bank_head-caption field-caption-tv"><---------------BANK DETAILS------------------></dt>
+					<dd id="supplier-bank_head-<%%VALUE(id)%%>" class="supplier-bank_head text-center"><%%SELECT%%><%%VALUE(bank_head)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-service_provider-caption field-caption-tv">Service provider</dt>
+					<dd id="supplier-service_provider-<%%VALUE(id)%%>" class="supplier-service_provider"><%%SELECT%%><%%VALUE(service_provider)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-sp_name-caption field-caption-tv">Service Provider Registered name</dt>
+					<dd id="supplier-sp_name-<%%VALUE(id)%%>" class="supplier-sp_name"><%%SELECT%%><%%VALUE(sp_name)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-sp_number-caption field-caption-tv">Service Provider Registered number</dt>
+					<dd id="supplier-sp_number-<%%VALUE(id)%%>" class="supplier-sp_number"><%%SELECT%%><%%VALUE(sp_number)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-account_name-caption field-caption-tv">Account name</dt>
+					<dd id="supplier-account_name-<%%VALUE(id)%%>" class="supplier-account_name"><%%SELECT%%><%%VALUE(account_name)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-account_number-caption field-caption-tv">Account number</dt>
+					<dd id="supplier-account_number-<%%VALUE(id)%%>" class="supplier-account_number"><%%SELECT%%><%%VALUE(account_number)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-iban_number-caption field-caption-tv">IBAN number</dt>
+					<dd id="supplier-iban_number-<%%VALUE(id)%%>" class="supplier-iban_number"><%%SELECT%%><%%VALUE(iban_number)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-bank_name-caption field-caption-tv">Bank name</dt>
+					<dd id="supplier-bank_name-<%%VALUE(id)%%>" class="supplier-bank_name"><%%SELECT%%><%%VALUE(bank_name)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-bank_branch-caption field-caption-tv">Bank branch</dt>
+					<dd id="supplier-bank_branch-<%%VALUE(id)%%>" class="supplier-bank_branch"><%%SELECT%%><%%VALUE(bank_branch)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-bank_code-caption field-caption-tv">Bank code</dt>
+					<dd id="supplier-bank_code-<%%VALUE(id)%%>" class="supplier-bank_code"><%%SELECT%%><%%VALUE(bank_code)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-mode_of_transfer-caption field-caption-tv">Mode of transfer</dt>
+					<dd id="supplier-mode_of_transfer-<%%VALUE(id)%%>" class="supplier-mode_of_transfer"><%%SELECT%%><%%VALUE(mode_of_transfer)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-terms_conditions-caption field-caption-tv">I have read and accepted the Vendor terms and Conditions.</dt>
+					<dd id="supplier-terms_conditions-<%%VALUE(id)%%>" class="supplier-terms_conditions"><%%SELECT%%><%%VALUE(terms_conditions)%%><%%ENDSELECT%%></dd>
+
+					<dt class="supplier-reg_date-caption field-caption-tv">Reg date</dt>
+					<dd id="supplier-reg_date-<%%VALUE(id)%%>" class="supplier-reg_date"><%%SELECT%%><%%VALUE(reg_date)%%><%%ENDSELECT%%></dd>
+
+				</dl>
+			</div>
+		</td>
+		<script>$j(function() {
+			var e_identity_no = '<%%VALUE(identity_no)%%>'; if(e_identity_no == '' || e_identity_no == '&nbsp;') $j(/*<*/ '#supplier-identity_no-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>

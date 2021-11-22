@@ -1,0 +1,221 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Flash_sale -->
+		<div class="form-group system_setting-flash_sale" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Flash_sale</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(flash_sale)%%></div>
+			</div>
+		</div>
+		<!-- Field: Date -->
+		<div class="form-group system_setting-date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(date)%%></div>
+			</div>
+		</div>
+		<!-- Field: Just_sold -->
+		<div class="form-group system_setting-just_sold" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Just_sold</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(just_sold)%%></div>
+			</div>
+		</div>
+		<!-- Field: Js_date -->
+		<div class="form-group system_setting-js_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Js_date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(js_date)%%></div>
+			</div>
+		</div>
+		<!-- Field: Recommended -->
+		<div class="form-group system_setting-recommended" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Recommended</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(recommended)%%></div>
+			</div>
+		</div>
+		<!-- Field: R_date -->
+		<div class="form-group system_setting-r_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">R_date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(r_date)%%></div>
+			</div>
+		</div>
+		<!-- Field: Latest_product -->
+		<div class="form-group system_setting-latest_product" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Latest_product</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(latest_product)%%></div>
+			</div>
+		</div>
+		<!-- Field: Lp_date -->
+		<div class="form-group system_setting-lp_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Lp_date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(lp_date)%%></div>
+			</div>
+		</div>
+		<!-- Field: Prods_1 -->
+		<div class="form-group system_setting-prods_1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Prods_1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(prods_1)%%></div>
+			</div>
+		</div>
+		<!-- Field: P1_date -->
+		<div class="form-group system_setting-p1_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">P1_date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(p1_date)%%></div>
+			</div>
+		</div>
+		<!-- Field: Id -->
+		<div class="form-group system_setting-id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Id</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Prods_2 -->
+		<div class="form-group system_setting-prods_2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Prods_2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(prods_2)%%></div>
+			</div>
+		</div>
+		<!-- Field: P2_date -->
+		<div class="form-group system_setting-p2_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">P2_date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(p2_date)%%></div>
+			</div>
+		</div>
+		<!-- Field: Prods_3 -->
+		<div class="form-group system_setting-prods_3" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Prods_3</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(prods_3)%%></div>
+			</div>
+		</div>
+		<!-- Field: P3_date -->
+		<div class="form-group system_setting-p3_date" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">P3_date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(p3_date)%%></div>
+			</div>
+		</div>
+		<!-- Field: Location -->
+		<div class="form-group system_setting-location" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Location</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(location)%%></div>
+			</div>
+		</div>
+		<!-- Field: Phone -->
+		<div class="form-group system_setting-phone" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Phone</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(phone)%%></div>
+			</div>
+		</div>
+		<!-- Field: Email -->
+		<div class="form-group system_setting-email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Email</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(email)%%></div>
+			</div>
+		</div>
+		<!-- Field: System_bg -->
+		<div class="form-group system_setting-system_bg" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">System_bg</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(system_bg)%%></div>
+			</div>
+		</div>
+		<!-- Field: Hidder -->
+		<div class="form-group system_setting-hidder" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Hidder</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(hidder)%%></div>
+			</div>
+		</div>
+		<!-- Field: Unhidder -->
+		<div class="form-group system_setting-unhidder" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Unhidder</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(unhidder)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script -->
+		<div class="form-group system_setting-new_script" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script2 -->
+		<div class="form-group system_setting-new_script2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script2)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script3 -->
+		<div class="form-group system_setting-new_script3" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script3</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script3)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script4 -->
+		<div class="form-group system_setting-new_script4" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script4</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script4)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script5 -->
+		<div class="form-group system_setting-new_script5" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script5</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script5)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script6 -->
+		<div class="form-group system_setting-new_script6" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script6</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script6)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script7 -->
+		<div class="form-group system_setting-new_script7" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script7</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script7)%%></div>
+			</div>
+		</div>
+		<!-- Field: New_script8 -->
+		<div class="form-group system_setting-new_script8" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">New_script8</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(new_script8)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>

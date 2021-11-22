@@ -1,0 +1,11 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the followers_init() hook (in hooks/followers.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="followers-userid-<%%VALUE(likeid)%%>" class="followers-userid"><%%VALUE(userid)%%></td>
+		<td id="followers-f_fname-<%%VALUE(likeid)%%>" class="followers-f_fname"><%%VALUE(f_fname)%%></td>
+		<td id="followers-vendorid-<%%VALUE(likeid)%%>" class="followers-vendorid"><%%VALUE(vendorid)%%></td>
+		<td id="followers-follow_date-<%%VALUE(likeid)%%>" class="followers-follow_date"><%%VALUE(follow_date)%%></td>
